@@ -1,6 +1,6 @@
 {
   "name": "gitinfo",
-  "description": "Get info about a GitHub repository.",
+  "description": "Get info about a local GitHub repository.",
   "keywords": [
     "github",
     "repository",
