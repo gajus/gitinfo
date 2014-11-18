@@ -1,10 +1,16 @@
 var expect = require('chai').expect,
-    Gitinfo = require('../src/gitinfo.js');
+    Gitinfo = require('../src/gitinfo.js'),
+    fs = require('fs');
 
 describe('gitinfo', function () {
     var gitinfo;
     beforeEach(function () {
         gitinfo = Gitinfo();
+    });
+    describe('.gitPath()', function () {
+        it('returns absolute path to the .git directory', function () {
+            expect(gitinfo.gitPath()).to.equal( fs.realpathSync(__dirname + '/../.git') )
+        });
     });
     describe('.username()', function () {
         it('returns the username of the repository author', function () {
