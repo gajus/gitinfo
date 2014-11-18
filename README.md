@@ -5,6 +5,8 @@
 
 Get info about a GitHub repository.
 
+Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository. If you have ideas how to extend the library, [raise an issue](https://github.com/gajus/gitinfo/issues).
+
 ```js
 var Gitinfo = require('gitinfo'),
     gitinfo,
