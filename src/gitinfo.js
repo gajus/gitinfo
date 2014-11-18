@@ -11,7 +11,15 @@ Gitinfo = function Gitinfo () {
     gitinfo = this;
 
     gitinfo._remoteOriginURL = function () {
-        return exec('git config --get remote.origin.url').output.trim();
+        var options;
+
+        // @see https://github.com/arturadib/shelljs#execcommand--options--callback
+        options = {
+            async: false,
+            silent: true
+        };
+
+        return exec('git config --get remote.origin.url', options).output.trim();
     };
 
     gitinfo.username = function () {
