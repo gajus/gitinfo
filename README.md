@@ -1,11 +1,15 @@
-## Gitinfo
+# Gitinfo
 
 [![Build Status](https://travis-ci.org/gajus/gitinfo.png?branch=master)](https://travis-ci.org/gajus/gitinfo)
 [![NPM version](https://badge.fury.io/js/gitinfo.svg)](http://badge.fury.io/js/gitinfo)
 
 Get info about a local GitHub repository.
 
-Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository. If you have ideas how to extend the library, [raise an issue](https://github.com/gajus/gitinfo/issues).
+Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
+
+If you have ideas how to extend the library, [raise an issue](https://github.com/gajus/gitinfo/issues).
+
+## API
 
 ```js
 var Gitinfo = require('gitinfo'),
