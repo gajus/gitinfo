@@ -15,6 +15,21 @@ Gitinfo = function Gitinfo (config) {
 
     gitinfo = this;
 
+    /**
+     *
+     */
+    gitinfo._exec = function (command) {
+        var options;
+
+        // @see https://github.com/arturadib/shelljs#execcommand--options--callback
+        options = {
+            async: false,
+            silent: true
+        };
+
+        return exec('cd ' + gitinfo.gitPath() + ';' + command, options).output.trim();
+    };
+
     gitinfo._remoteOriginURL = function () {
         var options;
 
@@ -24,7 +39,7 @@ Gitinfo = function Gitinfo (config) {
             silent: true
         };
 
-        return exec('git config --get remote.origin.url', options).output.trim();
+        return gitinfo._exec('git config --get remote.origin.url');
     };
 
     /**
@@ -46,6 +61,13 @@ Gitinfo = function Gitinfo (config) {
      */
     gitinfo.name = function () {
         return gitinfo._remoteOriginURL().split('/')[1].slice(0, -4);
+    };
+
+    /**
+     * @return {String} Current branch name.
+     */
+    gitinfo.branch = function () {
+        return gitinfo._exec('git rev-parse --abbrev-ref HEAD');
     };
 
     gitPath = Gitinfo.gitPath(config.gitPath);

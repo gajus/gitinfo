@@ -22,4 +22,9 @@ describe('gitinfo', function () {
             expect(gitinfo.name()).to.equal('gitinfo');
         });
     });
+    describe('.branch()', function () {
+        it('returns name of the current branch', function () {
+            expect(gitinfo.branch()).to.equal('master');
+        });
+    });
 });

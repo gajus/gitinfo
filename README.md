@@ -26,8 +26,12 @@ gitinfo.username();
  * @return {String} Repository name.
  */
 gitinfo.name();
-```
 
+/**
+ * @return {String} Current branch name.
+ */
+gitinfo.branch();
+```
 
 ### Configuration
 
