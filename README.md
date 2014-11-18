@@ -7,7 +7,7 @@ Get info about a local GitHub repository.
 
 Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
 
-If you have ideas how to extend the library, [raise an issue](https://github.com/gajus/gitinfo/issues).
+If you have ideas how to extend Gitinfo, [raise an issue](https://github.com/gajus/gitinfo/issues).
 
 ## API
 
