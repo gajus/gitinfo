@@ -28,6 +28,11 @@ gitinfo.username();
 gitinfo.name();
 
 /**
+ * @return {String} Repository URL.
+ */
+gitinfo.url();
+
+/**
  * @return {String} Current branch name.
  */
 gitinfo.branch();

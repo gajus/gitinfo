@@ -64,6 +64,13 @@ Gitinfo = function Gitinfo (config) {
     };
 
     /**
+     * @return {String} Repository URL.
+     */
+    gitinfo.url = function () {
+        return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
+    };
+
+    /**
      * @return {String} Current branch name.
      */
     gitinfo.branch = function () {

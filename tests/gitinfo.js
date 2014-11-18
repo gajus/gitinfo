@@ -18,8 +18,13 @@ describe('gitinfo', function () {
         });
     });
     describe('.name()', function () {
-        it('returns name of the repository including the username of the author', function () {
+        it('returns name of the repository', function () {
             expect(gitinfo.name()).to.equal('gitinfo');
+        });
+    });
+    describe('.url()', function () {
+        it('returns URL of the repository', function () {
+            expect(gitinfo.url()).to.equal('https://github.com/gajus/gitinfo');
         });
     });
     describe('.branch()', function () {
