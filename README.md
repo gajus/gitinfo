@@ -23,25 +23,35 @@ gitinfo = Gitinfo(config);
  */
 gitinfo.gitPath();
 
+// /.git
+
 /**
  * @return {String} Username of the repository author.
  */
 gitinfo.username();
+
+// gajus
 
 /**
  * @return {String} Repository name.
  */
 gitinfo.name();
 
+// gitinfo
+
 /**
  * @return {String} Repository URL.
  */
 gitinfo.url();
 
+// https://github.com/gajus/gitinfo
+
 /**
  * @return {String} Current branch name.
  */
 gitinfo.branch();
+
+// master
 ```
 
 ### Configuration
