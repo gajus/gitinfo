@@ -1,37 +1,26 @@
-var stackTrace = require('stack-trace'),
-    path = require('path');
+var Gitinfo,
+    exec = require('shelljs').exec;
 
-/**
- * @see http://nodejs.org/docs/v0.11.14/api/all.html#all_require
- * @see http://stackoverflow.com/questions/9210542/node-js-require-cache-possible-to-invalidate/11477602
- */
-module.exports = function requireNew (module) {
-    var dirName,
-        modulePath,
-        cachedModule,
-        newModule;
+Gitinfo = function Gitinfo () {
+    var gitinfo;
 
-    // @see http://nodejs.org/api/modules.html
-    if (module.indexOf('../') === 0 || module.indexOf('./') === 0) {
-        dirName = path.dirname(stackTrace.get()[1].getFileName());
-
-        module = dirName + '/' + module;
+    if (!(this instanceof Gitinfo)) {
+        return new Gitinfo();
     }
 
-    modulePath = require.resolve(module);
+    gitinfo = this;
 
-    cachedModule = require.cache[modulePath];
+    gitinfo._remoteOriginURL = function () {
+        return exec('git config --get remote.origin.url').output.trim();
+    };
 
-    delete require.cache[modulePath];
+    gitinfo.username = function () {
+        return gitinfo._remoteOriginURL().split(':')[1].split('/')[0];
+    };
 
-    newModule = require(modulePath);
-
-    if (cachedModule) {
-        require.cache[modulePath] = cachedModule;
-    } else {
-        delete require.cache[modulePath];
-    }
-
-    return newModule;
+    gitinfo.name = function () {
+        return gitinfo._remoteOriginURL().split('/')[1].slice(0, -4);
+    };
 };
 
+module.exports = Gitinfo;
