@@ -1,11 +1,7 @@
-<!--
-This file has been generated using GitDown (https://github.com/gajus/gitdown).
-Direct edits to this will be be overwritten. Look for GitDown markup file under ./.gitdown/ path.
--->
-<h1 id="gitinfo">Gitinfo</h1>
+# Gitinfo
 
-[![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat)](https://travis-ci.org/gajus/gitinfo)
-[![NPM version](http://img.shields.io/npm/v/gitinfo.svg?style=flat)](https://www.npmjs.org/package/gitinfo)
+{"gitdown": "badge", "name": "travis"}
+{"gitdown": "badge", "name": "npm-version"}
 
 Get info about a local GitHub repository.
 
@@ -13,7 +9,7 @@ Gitinfo is designed to be used during the runtime of the script. Querying the da
 
 If you have ideas how to extend Gitinfo, [raise an issue](https://github.com/gajus/gitinfo/issues).
 
-<h2 id="gitinfo-api">API</h2>
+## API
 
 ```js
 var Gitinfo = require('gitinfo'),
@@ -58,13 +54,13 @@ gitinfo.branch();
 // master
 ```
 
-<h3 id="gitinfo-api-configuration">Configuration</h3>
+### Configuration
 
 | Name | Description | Default |
 | --- | --- | --- |
 | `gitPath` | Path to the .git directory. | `__dirname` |
 
-<h2 id="gitinfo-download">Download</h2>
+## Download
 
 Download using NPM:
 
