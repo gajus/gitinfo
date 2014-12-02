@@ -31,14 +31,6 @@ Gitinfo = function Gitinfo (config) {
     };
 
     gitinfo._remoteOriginURL = function () {
-        var options;
-
-        // @see https://github.com/arturadib/shelljs#execcommand--options--callback
-        options = {
-            async: false,
-            silent: true
-        };
-
         return gitinfo._exec('git config --get remote.origin.url');
     };
 
@@ -53,14 +45,14 @@ Gitinfo = function Gitinfo (config) {
      * @return {String} Username of the repository author.
      */
     gitinfo.username = function () {
-        return gitinfo._remoteOriginURL().split(':')[1].split('/')[0];
+        return Gitinfo._parseRemoteOriginURL(gitinfo._remoteOriginURL()).username;
     };
 
     /**
      * @return {String} Repository name.
      */
     gitinfo.name = function () {
-        return gitinfo._remoteOriginURL().split('/')[1].slice(0, -4);
+        return Gitinfo._parseRemoteOriginURL(gitinfo._remoteOriginURL()).name;
     };
 
     /**
@@ -82,6 +74,42 @@ Gitinfo = function Gitinfo (config) {
     if (!gitPath) {
         throw new Error('config.gitPath is not a descendant of .git/ director.');
     }
+};
+
+/**
+ * @param {String} url Supported Git remote origin URL (https, git or SVN).
+ * @return {Object} repository
+ * @return {String} repository.username
+ * @return {String} repository.name
+ */
+Gitinfo._parseRemoteOriginURL = function (input) {
+    var URL = require('url'),
+        url;
+
+    // git@github.com:gajus/gitdown.git
+    // https://github.com/gajus/gitdown.git
+    // https://github.com/gajus/gitdown
+
+    if (input.indexOf('com:') !== -1) {
+        url = input.split('com:')[1];
+    } else {
+        url = URL.parse(input).path.slice(1);
+    }
+
+    if (/\.git$/.test(url)) {
+        url = url.slice(0, -4);
+    }
+
+    url = url.split('/');
+
+    if (url.length != 2) {
+        throw new Error('Invalid remote origin URL ("' + input + '").');
+    }
+
+    return {
+        username: url[0],
+        name: url[1]
+    };
 };
 
 /**

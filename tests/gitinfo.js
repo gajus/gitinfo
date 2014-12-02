@@ -33,3 +33,21 @@ describe('gitinfo', function () {
         });
     });
 });
+describe('Gitinfo', function () {
+    describe('._parseRemoteOriginURL()', function () {
+        it('parses HTTPS URL', function () {
+            expect(Gitinfo._parseRemoteOriginURL('https://github.com/gajus/gitinfo.git')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+        });
+        it('parses SSH URL', function () {
+            expect(Gitinfo._parseRemoteOriginURL('git@github.com:gajus/gitinfo.git')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+        });
+        it('parses Subeversion URL', function () {
+            expect(Gitinfo._parseRemoteOriginURL('https://github.com/gajus/gitinfo')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+        });
+        it('throws an if URL cannot be broken into username and name', function () {
+            expect(function () {
+                Gitinfo._parseRemoteOriginURL('http://gajus.com/blog/some/post');
+            }).to.throw(Error, 'Invalid remote origin URL ("http://gajus.com/blog/some/post").');
+        });
+    });
+});
