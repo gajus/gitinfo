@@ -12,6 +12,16 @@ describe('gitinfo', function () {
             expect(gitinfo.gitPath()).to.equal( fs.realpathSync(__dirname + '/../.git') )
         });
     });
+    describe('.branch()', function () {
+        it('returns name of the current branch', function () {
+            expect(gitinfo.branch()).to.equal('master');
+        });
+    });
+    describe('.remoteURL', function () {
+        it('gets the remote URL of the current branch.', function () {
+            expect(gitinfo.remoteURL()).to.equal('git@github.com:gajus/gitinfo.git');
+        });
+    })
     describe('.username()', function () {
         it('returns the username of the repository author', function () {
             expect(gitinfo.username()).to.equal('gajus');
@@ -25,11 +35,6 @@ describe('gitinfo', function () {
     describe('.url()', function () {
         it('returns URL of the repository', function () {
             expect(gitinfo.url()).to.equal('https://github.com/gajus/gitinfo');
-        });
-    });
-    describe('.branch()', function () {
-        it('returns name of the current branch', function () {
-            expect(gitinfo.branch()).to.equal('master');
         });
     });
 });
