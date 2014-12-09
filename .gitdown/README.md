@@ -3,7 +3,7 @@
 {"gitdown": "badge", "name": "travis"}
 {"gitdown": "badge", "name": "npm-version"}
 
-Get info about a local GitHub repository.
+Get info about a local clone of a GitHub repository.
 
 Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
 
@@ -47,11 +47,18 @@ gitinfo.url();
 // https://github.com/gajus/gitinfo
 
 /**
- * @return {String} Current branch name.
+ * @return {String} Name of the current branch.
  */
 gitinfo.branch();
 
 // master
+
+/**
+ * @return {String} Remote URL of the current branch.
+ */
+gitinfo.remoteURL();
+
+// git@github.com:gajus/gitinfo.git
 ```
 
 ### Configuration

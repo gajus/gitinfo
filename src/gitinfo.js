@@ -22,7 +22,7 @@ Gitinfo = function Gitinfo (config) {
     };
 
     /**
-     * Get name of the current branch.
+     * Gets name of the current branch.
      * 
      * @see http://stackoverflow.com/a/12142066/368691
      * @return {String}

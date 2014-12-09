@@ -7,7 +7,7 @@ Direct edits to this will be be overwritten. Look for GitDown markup file under 
 [![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat)](https://travis-ci.org/gajus/gitinfo)
 [![NPM version](http://img.shields.io/npm/v/gitinfo.svg?style=flat)](https://www.npmjs.org/package/gitinfo)
 
-Get info about a local GitHub repository.
+Get info about a local clone of a GitHub repository.
 
 Gitinfo is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
 
@@ -51,11 +51,18 @@ gitinfo.url();
 // https://github.com/gajus/gitinfo
 
 /**
- * @return {String} Current branch name.
+ * @return {String} Name of the current branch.
  */
 gitinfo.branch();
 
 // master
+
+/**
+ * @return {String} Remote URL of the current branch.
+ */
+gitinfo.remoteURL();
+
+// git@github.com:gajus/gitinfo.git
 ```
 
 <h3 id="gitinfo-api-configuration">Configuration</h3>
