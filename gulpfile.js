@@ -1,13 +1,14 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
-    jshint = require('gulp-jshint'),
-    GitDown = require('gitdown');
+    eslint = require('gulp-eslint'),
+    gitdown = require('gitdown');
 
 gulp.task('lint', function () {
     return gulp
-        .src('./src/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
+        .src(['./src/*.js', './src/tests/*.js'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
 });
 
 gulp.task('test', ['lint'], function () {
@@ -17,7 +18,7 @@ gulp.task('test', ['lint'], function () {
 });
 
 gulp.task('gitdown', function () {
-    return GitDown
+    return gitdown
         .read('.gitdown/README.md')
         .write('README.md');
 });

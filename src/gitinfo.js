@@ -1,3 +1,5 @@
+'use strict';
+
 var Gitinfo,
     fs = require('fs');
 
@@ -23,7 +25,7 @@ Gitinfo = function Gitinfo (config) {
 
     /**
      * Gets name of the current branch.
-     * 
+     *
      * @see http://stackoverflow.com/a/12142066/368691
      * @return {String}
      */
@@ -51,7 +53,7 @@ Gitinfo = function Gitinfo (config) {
     /**
      * Get the remote URL of the current branch.
      *
-     * @return {String} 
+     * @return {String}
      */
     gitinfo.remoteURL = function () {
         var branchName = gitinfo.branch(),
@@ -134,9 +136,7 @@ Gitinfo._parseINI = function (name) {
     config = ini.parse(config);
 
     return config;
-}
-
-
+};
 
 /**
  * @param {String} url Supported Git remote origin URL (https, git or SVN).
@@ -164,7 +164,7 @@ Gitinfo._parseRemoteOriginURL = function (input) {
 
     url = url.split('/');
 
-    if (url.length != 2) {
+    if (url.length !== 2) {
         throw new Error('Invalid remote origin URL ("' + input + '").');
     }
 
@@ -180,7 +180,8 @@ Gitinfo._parseRemoteOriginURL = function (input) {
  * @param {String} startPath The path where start the search.
  */
 Gitinfo.gitPath = function (startPath) {
-    var gitpath = false;
+    var gitpath = false,
+        dirname;
 
     dirname = startPath;
 
@@ -192,7 +193,7 @@ Gitinfo.gitPath = function (startPath) {
         }
 
         dirname = fs.realpathSync(dirname + '/..');
-    } while (fs.existsSync(dirname) && dirname != '/');
+    } while (fs.existsSync(dirname) && dirname !== '/');
 
     return gitpath;
 };
