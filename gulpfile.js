@@ -19,8 +19,8 @@ gulp.task('test', ['lint'], function () {
 
 gulp.task('gitdown', function () {
     return gitdown
-        .read('.gitdown/README.md')
-        .write('README.md');
+        .readFile('.gitdown/README.md')
+        .writeFile('README.md');
 });
 
 gulp.task('watch', function () {

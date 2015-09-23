@@ -1,20 +1,24 @@
 'use strict';
 
-var Gitinfo,
-    fs = require('fs');
+var fs = require('fs'),
+    utils = require('./utils');
 
-Gitinfo = function Gitinfo (config) {
+/**
+ * @typedef config
+ * @property {String} gitPath Path to the .git directory (default: __dirname).
+ */
+
+/**
+ * @param {config} config
+ */
+module.exports = function (config) {
     var gitinfo,
         gitPath;
-
-    if (!(this instanceof Gitinfo)) {
-        return new Gitinfo(config);
-    }
 
     config = config || {};
     config.gitPath = config.gitPath || __dirname;
 
-    gitinfo = this;
+    gitinfo = {};
 
     /**
      * @return {String} Repository URL.
@@ -91,14 +95,14 @@ Gitinfo = function Gitinfo (config) {
      * @return {String} Username of the repository author.
      */
     gitinfo.username = function () {
-        return Gitinfo._parseRemoteOriginURL(gitinfo.remoteURL()).username;
+        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).username;
     };
 
     /**
      * @return {String} Repository name.
      */
     gitinfo.name = function () {
-        return Gitinfo._parseRemoteOriginURL(gitinfo.remoteURL()).name;
+        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).name;
     };
 
     /**
@@ -107,96 +111,18 @@ Gitinfo = function Gitinfo (config) {
      * @return {Object}
      */
     gitinfo.config = function () {
-        return Gitinfo._parseINI(gitPath + '/config');
+        return utils.parseINI(gitPath + '/config');
     };
 
-    gitPath = Gitinfo.gitPath(config.gitPath);
+    if (utils.isGitDirectory(config.gitPath)) {
+        gitPath = config.gitPath;
+    } else {
+        gitPath = utils.gitPath(config.gitPath);
+    }
 
     if (!gitPath) {
         throw new Error('config.gitPath is not a descendant of .git/ director.');
     }
+
+    return gitinfo;
 };
-
-/**
- * Read INI file into an object.
- *
- * @param {String} name
- * @return {Object}
- */
-Gitinfo._parseINI = function (name) {
-    var fs = require('fs'),
-        ini = require('ini'),
-        config;
-
-    if (!fs.existsSync(name)) {
-        throw new Error('INI file ("' + name + '") does not exist.');
-    }
-
-    config = fs.readFileSync(name, {encoding: 'utf8'});
-    config = ini.parse(config);
-
-    return config;
-};
-
-/**
- * @param {String} url Supported Git remote origin URL (https, git or SVN).
- * @return {Object} repository
- * @return {String} repository.username
- * @return {String} repository.name
- */
-Gitinfo._parseRemoteOriginURL = function (input) {
-    var URL = require('url'),
-        url;
-
-    // git@github.com:gajus/gitdown.git
-    // https://github.com/gajus/gitdown.git
-    // https://github.com/gajus/gitdown
-
-    if (input.indexOf('com:') !== -1) {
-        url = input.split('com:')[1];
-    } else {
-        url = URL.parse(input).path.slice(1);
-    }
-
-    if (/\.git$/.test(url)) {
-        url = url.slice(0, -4);
-    }
-
-    url = url.split('/');
-
-    if (url.length !== 2) {
-        throw new Error('Invalid remote origin URL ("' + input + '").');
-    }
-
-    return {
-        username: url[0],
-        name: url[1]
-    };
-};
-
-/**
- * Ascend the system's file tree looking for .git/ directory.
- *
- * @param {String} startPath The path where start the search.
- */
-Gitinfo.gitPath = function (startPath) {
-    var gitpath = false,
-        dirname;
-
-    dirname = startPath;
-
-    do {
-        if (fs.existsSync(dirname + '/.git')) {
-            gitpath = dirname + '/.git';
-
-            break;
-        }
-
-        dirname = fs.realpathSync(dirname + '/..');
-    } while (fs.existsSync(dirname) && dirname !== '/');
-
-    return gitpath;
-};
-
-
-module.exports = Gitinfo;
