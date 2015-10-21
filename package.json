@@ -29,7 +29,6 @@
     "gulp-mocha": "^2.1.3"
   },
   "dependencies": {
-    "ini": "^1.3.4",
-    "shelljs": "^0.5.3"
+    "ini": "^1.3.4"
   }
 }
