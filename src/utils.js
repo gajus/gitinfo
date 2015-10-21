@@ -1,5 +1,5 @@
-var utils,
-    fs = require('fs');
+var utils;
+var fs = require('fs');
 
 utils = {};
 
@@ -10,19 +10,18 @@ utils = {};
  * @param {String} name
  * @return {Object}
  */
-utils.parseINI = function (name) {
-    var fs = require('fs'),
-        ini = require('ini'),
-        config;
+utils.parseINI = function(name) {
+  var ini = require('ini');
+  var config;
 
-    if (!fs.existsSync(name)) {
-        throw new Error('INI file ("' + name + '") does not exist.');
-    }
+  if (!fs.existsSync(name)) {
+    throw new Error('INI file ("' + name + '") does not exist.');
+  }
 
-    config = fs.readFileSync(name, {encoding: 'utf8'});
-    config = ini.parse(config);
+  config = fs.readFileSync(name, {encoding: 'utf8'});
+  config = ini.parse(config);
 
-    return config;
+  return config;
 };
 
 /**
@@ -32,51 +31,51 @@ utils.parseINI = function (name) {
  * @return {String} repository.username
  * @return {String} repository.name
  */
-utils.parseRemoteOriginURL = function (input) {
-    var URL = require('url'),
-        url;
+utils.parseRemoteOriginURL = function(input) {
+  var URL = require('url');
+  var url;
 
-    // git@github.com:gajus/gitdown.git
-    // https://github.com/gajus/gitdown.git
-    // https://github.com/gajus/gitdown
+  // git@github.com:gajus/gitdown.git
+  // https://github.com/gajus/gitdown.git
+  // https://github.com/gajus/gitdown
 
-    if (input.indexOf('com:') !== -1) {
-        url = input.split('com:')[1];
-    } else {
-        url = URL.parse(input).path.slice(1);
-    }
+  if (input.indexOf('com:') !== -1) {
+    url = input.split('com:')[1];
+  } else {
+    url = URL.parse(input).path.slice(1);
+  }
 
-    if (/\.git$/.test(url)) {
-        url = url.slice(0, -4);
-    }
+  if (/\.git$/.test(url)) {
+    url = url.slice(0, -4);
+  }
 
-    url = url.split('/');
+  url = url.split('/');
 
-    if (url.length !== 2) {
-        throw new Error('Invalid remote origin URL ("' + input + '").');
-    }
+  if (url.length !== 2) {
+    throw new Error('Invalid remote origin URL ("' + input + '").');
+  }
 
-    return {
-        username: url[0],
-        name: url[1]
-    };
+  return {
+    username: url[0],
+    name: url[1]
+  };
 };
 
 /**
  * @access protected
  * @return {Boolean}
  */
-utils.isGitDirectory = function (path) {
-    try {
-        fs.statSync(path + '/HEAD');
-        fs.statSync(path + '/objects');
-        fs.statSync(path + '/refs');
-        fs.statSync(path + '/config');
+utils.isGitDirectory = function(path) {
+  try {
+    fs.statSync(path + '/HEAD');
+    fs.statSync(path + '/objects');
+    fs.statSync(path + '/refs');
+    fs.statSync(path + '/config');
 
-        return true;
-    } catch (e) {
-        return false;
-    }
+    return true;
+  } catch (e) {
+    return false;
+  }
 };
 
 /**
@@ -85,23 +84,23 @@ utils.isGitDirectory = function (path) {
  * @access protected
  * @param {String} startPath The path where start the search.
  */
-utils.gitPath = function (startPath) {
-    var gitpath = false,
-        dirname;
+utils.gitPath = function(startPath) {
+  var gitpath = false;
+  var dirname;
 
-    dirname = startPath;
+  dirname = startPath;
 
-    do {
-        if (fs.existsSync(dirname + '/.git')) {
-            gitpath = dirname + '/.git';
+  do {
+    if (fs.existsSync(dirname + '/.git')) {
+      gitpath = dirname + '/.git';
 
-            break;
-        }
+      break;
+    }
 
-        dirname = fs.realpathSync(dirname + '/..');
-    } while (fs.existsSync(dirname) && dirname !== '/');
+    dirname = fs.realpathSync(dirname + '/..');
+  } while (fs.existsSync(dirname) && dirname !== '/');
 
-    return gitpath;
+  return gitpath;
 };
 
 module.exports = utils;
