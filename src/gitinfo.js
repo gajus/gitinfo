@@ -35,7 +35,6 @@ module.exports = function (config) {
      */
     gitinfo.branch = function () {
         var name = gitPath + '/HEAD',
-            fs = require('fs'),
             head,
             branch;
 
@@ -70,7 +69,7 @@ module.exports = function (config) {
         if (!branch) {
             throw new Error('Branch ("' + branchName + '") definition does not exist in the config.');
         } else if (!branch.remote) {
-            throw new Error('Branch ("' + branchName + '") does not define "remote".')
+            throw new Error('Branch ("' + branchName + '") does not define "remote".');
         }
 
         remote = config['remote "' + branch.remote + '"'];
@@ -78,7 +77,7 @@ module.exports = function (config) {
         if (!remote) {
             throw new Error('Remote ("' + branch.remote + '") definition does not exist in the config.');
         } else if (!remote.url) {
-            throw new Error('Remote ("' + branch.remote + '") does not define "url".')
+            throw new Error('Remote ("' + branch.remote + '") does not define "url".');
         }
 
         return remote.url;

@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function () {
     return gulp
-        .src(['./src/*.js', './src/tests/*.js'])
+        .src(['./src/*.js', './src/tests/*.js', 'gulpfile.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError());
