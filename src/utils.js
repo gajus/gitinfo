@@ -101,4 +101,12 @@ utils.gitPath = function(startPath) {
   return gitpath;
 };
 
+/**
+ * @param {string} string A string to be trimmed
+ * @returns {string} An initial string without leading and trailing spaces, tabs, newlines
+ */
+utils.trim = function(string) {
+  return string.replace(/^\s+|\s+$/g, '');
+};
+
 module.exports = utils;

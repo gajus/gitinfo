@@ -40,4 +40,9 @@ describe('gitinfo', function() {
       expect(repository.url()).to.equal('https://github.com/foo/bar');
     });
   });
+  describe('.sha()', function() {
+    it('returns commit SHA of the current HEAD', function() {
+      expect(repository.sha()).to.equal('dcc075287eb8f6eb4ef34133a4747d2b50b28306');
+    });
+  });
 });
