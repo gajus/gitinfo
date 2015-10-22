@@ -8,7 +8,7 @@ install:
     - npm install
 before_script:
     - npm install -g gulp
-script: gulp
+script: gulp test
 notifications:
     email: false
 sudo: false
