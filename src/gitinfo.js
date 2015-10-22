@@ -1,6 +1,7 @@
 'use strict';
 
 var fs = require('fs'),
+    path = require('path'),
     utils = require('./utils');
 
 /**
@@ -103,6 +104,21 @@ module.exports = function (config) {
      */
     gitinfo.name = function () {
         return utils.parseRemoteOriginURL(gitinfo.remoteURL()).name;
+    };
+
+    /**
+     * @returns {string} Commit SHA of the current branch
+     */
+    gitinfo.sha = function() {
+        var branch = gitinfo.branch(),
+            shaFile = path.join(gitPath, 'refs', 'heads', branch),
+            sha;
+        try {
+            sha = fs.readFileSync(shaFile, {encoding: 'utf8'});
+        } catch (err) {
+            throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
+        }
+        return utils.trim(sha);
     };
 
     /**

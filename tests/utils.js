@@ -18,4 +18,10 @@ describe('utils', function () {
             }).to.throw(Error, 'Invalid remote origin URL ("http://gajus.com/blog/some/post").');
         });
     });
+
+    describe('.trim()', function () {
+        it('trims whitespaces, tabs and newlines', function () {
+            expect(utils.trim('  \tsomeText with spaces\n')).to.equal('someText with spaces');
+        });
+    });
 });
