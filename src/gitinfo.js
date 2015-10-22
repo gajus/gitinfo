@@ -5,11 +5,12 @@ var utils = require('./utils');
 
 /**
  * @typedef config
- * @property {String} gitPath Path to the .git directory (default: __dirname).
+ * @property {string} gitPath Path to the .git directory (default: __dirname).
  */
 
 /**
- * @param {config} config
+ * @param {config} config A configuration object
+ * @returns {object} A repository object with git information
  */
 module.exports = function(config) {
   var gitinfo;
@@ -21,7 +22,7 @@ module.exports = function(config) {
   gitinfo = {};
 
   /**
-   * @return {String} Repository URL.
+   * @returns {string} Repository URL.
    */
   gitinfo.url = function() {
     return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
@@ -31,7 +32,7 @@ module.exports = function(config) {
    * Gets name of the current branch.
    *
    * @see http://stackoverflow.com/a/12142066/368691
-   * @return {String}
+   * @returns {string} A branch name
    */
   gitinfo.branch = function() {
     var name = gitPath + '/HEAD';
@@ -56,7 +57,7 @@ module.exports = function(config) {
   /**
    * Get the remote URL of the current branch.
    *
-   * @return {String}
+   * @returns {string} A link to the remote URL of the repository
    */
   gitinfo.remoteURL = function() {
     var branchName = gitinfo.branch();
@@ -84,30 +85,28 @@ module.exports = function(config) {
   };
 
   /**
-   * @return {String} Absolute path to the .git/ directory.
+   * @returns {string} Absolute path to the .git/ directory.
    */
   gitinfo.gitPath = function() {
     return gitPath;
   };
 
   /**
-   * @return {String} Username of the repository author.
+   * @returns {string} Username of the repository author.
    */
   gitinfo.username = function() {
     return utils.parseRemoteOriginURL(gitinfo.remoteURL()).username;
   };
 
   /**
-   * @return {String} Repository name.
+   * @returns {string} Repository name.
    */
   gitinfo.name = function() {
     return utils.parseRemoteOriginURL(gitinfo.remoteURL()).name;
   };
 
   /**
-   * Get object representation of the .git/config file.
-   *
-   * @return {Object}
+   * @returns {Object} An object representation of the .git/config file.
    */
   gitinfo.config = function() {
     return utils.parseINI(gitPath + '/config');

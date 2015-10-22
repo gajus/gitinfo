@@ -4,11 +4,9 @@ var fs = require('fs');
 utils = {};
 
 /**
- * Read INI file into an object.
- *
  * @access protected
- * @param {String} name
- * @return {Object}
+ * @param {string} name A path to the INI file
+ * @returns {Object} Read INI file into an object.
  */
 utils.parseINI = function(name) {
   var ini = require('ini');
@@ -26,10 +24,10 @@ utils.parseINI = function(name) {
 
 /**
  * @access protected
- * @param {String} url Supported Git remote origin URL (https, git or SVN).
- * @return {Object} repository
- * @return {String} repository.username
- * @return {String} repository.name
+ * @param {string} input Supported Git remote origin URL (https, git or SVN).
+ * @returns {Object} repository
+ * @returns {string} repository.username
+ * @returns {string} repository.name
  */
 utils.parseRemoteOriginURL = function(input) {
   var URL = require('url');
@@ -63,7 +61,8 @@ utils.parseRemoteOriginURL = function(input) {
 
 /**
  * @access protected
- * @return {Boolean}
+ * @param {string} path A path to the .git folder
+ * @returns {boolean} Returns true if the passed folder path is a .git folder
  */
 utils.isGitDirectory = function(path) {
   try {
@@ -79,10 +78,9 @@ utils.isGitDirectory = function(path) {
 };
 
 /**
- * Ascend the system's file tree looking for .git/ directory.
- *
  * @access protected
- * @param {String} startPath The path where start the search.
+ * @param {string} startPath The path where start the search.
+ * @returns {string} Ascend the system's file tree looking for .git/ directory.
  */
 utils.gitPath = function(startPath) {
   var gitpath = false;
