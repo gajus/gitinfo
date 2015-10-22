@@ -11,8 +11,7 @@ utils = {};
  * @return {Object}
  */
 utils.parseINI = function (name) {
-    var fs = require('fs'),
-        ini = require('ini'),
+    var ini = require('ini'),
         config;
 
     if (!fs.existsSync(name)) {

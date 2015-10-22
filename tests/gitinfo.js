@@ -11,7 +11,7 @@ describe('gitinfo', function () {
     });
     describe('.gitPath()', function () {
         it('returns absolute path to the .git directory', function () {
-            expect(repository.gitPath()).to.equal( fs.realpathSync(__dirname + '/dummy_git/') )
+            expect(repository.gitPath()).to.equal( fs.realpathSync(__dirname + '/dummy_git/') );
         });
     });
     describe('.branch()', function () {
@@ -23,7 +23,7 @@ describe('gitinfo', function () {
         it('gets the remote URL of the current branch.', function () {
             expect(repository.remoteURL()).to.equal('git@github.com:foo/bar.git');
         });
-    })
+    });
     describe('.username()', function () {
         it('returns the username of the repository author', function () {
             expect(repository.username()).to.equal('foo');
