@@ -1,6 +1,22 @@
-import fs from 'fs';
-import path from 'path';
-import utils from './utils';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _utils = require('./utils');
+
+var _utils2 = _interopRequireDefault(_utils);
 
 /**
  * @typedef config
@@ -11,9 +27,12 @@ import utils from './utils';
  * @param {config} config
  * @returns {Object}
  */
-export default (config = {}) => {
-    let gitPath,
-        gitinfo;
+
+exports['default'] = function () {
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+    var gitPath = undefined,
+        gitinfo = undefined;
 
     config.gitPath = config.gitPath || __dirname;
 
@@ -22,7 +41,7 @@ export default (config = {}) => {
     /**
      * @return {string} Repository URL.
      */
-    gitinfo.url = () => {
+    gitinfo.url = function () {
         return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
     };
 
@@ -32,18 +51,18 @@ export default (config = {}) => {
      * @see http://stackoverflow.com/a/12142066/368691
      * @return {string}
      */
-    gitinfo.branch = () => {
-        let branch,
-            head,
-            name;
+    gitinfo.branch = function () {
+        var branch = undefined,
+            head = undefined,
+            name = undefined;
 
         name = gitPath + '/HEAD';
 
-        if (!fs.existsSync(name)) {
+        if (!_fs2['default'].existsSync(name)) {
             throw new Error('Git HEAD ("' + name + '") does not exist.');
         }
 
-        head = fs.readFileSync(name, {encoding: 'utf8'});
+        head = _fs2['default'].readFileSync(name, { encoding: 'utf8' });
 
         branch = head.match(/^ref: refs\/heads\/(.*)$/m);
 
@@ -59,11 +78,11 @@ export default (config = {}) => {
      *
      * @return {string}
      */
-    gitinfo.remoteURL = () => {
-        let branch,
-            branchName,
-            config,
-            remote;
+    gitinfo.remoteURL = function () {
+        var branch = undefined,
+            branchName = undefined,
+            config = undefined,
+            remote = undefined;
 
         branchName = gitinfo.branch();
         config = gitinfo.config();
@@ -90,41 +109,41 @@ export default (config = {}) => {
     /**
      * @return {string} Absolute path to the .git/ directory.
      */
-    gitinfo.gitPath = () => {
+    gitinfo.gitPath = function () {
         return gitPath;
     };
 
     /**
      * @return {string} Username of the repository author.
      */
-    gitinfo.username = () => {
-        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).username;
+    gitinfo.username = function () {
+        return _utils2['default'].parseRemoteOriginURL(gitinfo.remoteURL()).username;
     };
 
     /**
      * @return {string} Repository name.
      */
-    gitinfo.name = () => {
-        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).name;
+    gitinfo.name = function () {
+        return _utils2['default'].parseRemoteOriginURL(gitinfo.remoteURL()).name;
     };
 
     /**
      * @returns {string} Commit SHA of the current branch
      */
-    gitinfo.sha = () => {
-        let branch,
-            sha,
-            shaFile;
+    gitinfo.sha = function () {
+        var branch = undefined,
+            sha = undefined,
+            shaFile = undefined;
 
         branch = gitinfo.branch();
-        shaFile = path.join(gitPath, 'refs', 'heads', branch);
+        shaFile = _path2['default'].join(gitPath, 'refs', 'heads', branch);
 
         try {
-            sha = fs.readFileSync(shaFile, {encoding: 'utf8'});
+            sha = _fs2['default'].readFileSync(shaFile, { encoding: 'utf8' });
         } catch (err) {
             throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
         }
-        return utils.trim(sha);
+        return _utils2['default'].trim(sha);
     };
 
     /**
@@ -132,14 +151,14 @@ export default (config = {}) => {
      *
      * @returns {Object}
      */
-    gitinfo.config = () => {
-        return utils.parseINI(gitPath + '/config');
+    gitinfo.config = function () {
+        return _utils2['default'].parseINI(gitPath + '/config');
     };
 
-    if (utils.isGitDirectory(config.gitPath)) {
+    if (_utils2['default'].isGitDirectory(config.gitPath)) {
         gitPath = config.gitPath;
     } else {
-        gitPath = utils.gitPath(config.gitPath);
+        gitPath = _utils2['default'].gitPath(config.gitPath);
     }
 
     if (!gitPath) {
@@ -148,3 +167,6 @@ export default (config = {}) => {
 
     return gitinfo;
 };
+
+module.exports = exports['default'];
+//# sourceMappingURL=gitinfo.js.map

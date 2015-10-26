@@ -1,8 +1,20 @@
-import fs from 'fs';
-import ini from 'ini';
-import URL from 'url';
+'use strict';
 
-let utils;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _ini = require('ini');
+
+var _ini2 = _interopRequireDefault(_ini);
+
+var _url = require('url');
+
+var _url2 = _interopRequireDefault(_url);
+
+var utils = undefined;
 
 utils = {};
 
@@ -13,15 +25,15 @@ utils = {};
  * @param {string} name
  * @returns {Object}
  */
-utils.parseINI = (name) => {
-    let config;
+utils.parseINI = function (name) {
+    var config = undefined;
 
-    if (!fs.existsSync(name)) {
+    if (!_fs2['default'].existsSync(name)) {
         throw new Error('INI file ("' + name + '") does not exist.');
     }
 
-    config = fs.readFileSync(name, {encoding: 'utf8'});
-    config = ini.parse(config);
+    config = _fs2['default'].readFileSync(name, { encoding: 'utf8' });
+    config = _ini2['default'].parse(config);
 
     return config;
 };
@@ -33,8 +45,8 @@ utils.parseINI = (name) => {
  * @returns {string} repository.username
  * @returns {string} repository.name
  */
-utils.parseRemoteOriginURL = (input) => {
-    let url;
+utils.parseRemoteOriginURL = function (input) {
+    var url = undefined;
 
     // git@github.com:gajus/gitdown.git
     // https://github.com/gajus/gitdown.git
@@ -43,7 +55,7 @@ utils.parseRemoteOriginURL = (input) => {
     if (input.indexOf('com:') !== -1) {
         url = input.split('com:')[1];
     } else {
-        url = URL.parse(input).path.slice(1);
+        url = _url2['default'].parse(input).path.slice(1);
     }
 
     if (/\.git$/.test(url)) {
@@ -67,12 +79,12 @@ utils.parseRemoteOriginURL = (input) => {
  * @param {string} path
  * @returns {boolean}
  */
-utils.isGitDirectory = (path) => {
+utils.isGitDirectory = function (path) {
     try {
-        fs.statSync(path + '/HEAD');
-        fs.statSync(path + '/objects');
-        fs.statSync(path + '/refs');
-        fs.statSync(path + '/config');
+        _fs2['default'].statSync(path + '/HEAD');
+        _fs2['default'].statSync(path + '/objects');
+        _fs2['default'].statSync(path + '/refs');
+        _fs2['default'].statSync(path + '/config');
 
         return true;
     } catch (error) {
@@ -87,23 +99,23 @@ utils.isGitDirectory = (path) => {
  * @param {string} startPath The path where start the search.
  * @returns {string}
  */
-utils.gitPath = (startPath) => {
-    let dirname,
-        gitpath;
+utils.gitPath = function (startPath) {
+    var dirname = undefined,
+        gitpath = undefined;
 
     gitpath = false;
 
     dirname = startPath;
 
     do {
-        if (fs.existsSync(dirname + '/.git')) {
+        if (_fs2['default'].existsSync(dirname + '/.git')) {
             gitpath = dirname + '/.git';
 
             break;
         }
 
-        dirname = fs.realpathSync(dirname + '/..');
-    } while (fs.existsSync(dirname) && dirname !== '/');
+        dirname = _fs2['default'].realpathSync(dirname + '/..');
+    } while (_fs2['default'].existsSync(dirname) && dirname !== '/');
 
     return gitpath;
 };
@@ -112,8 +124,9 @@ utils.gitPath = (startPath) => {
  * @param {string} string A string to be trimmed
  * @returns {string} An initial string without leading and trailing spaces, tabs, newlines
  */
-utils.trim = (string) => {
+utils.trim = function (string) {
     return string.replace(/^\s+|\s+$/g, '');
 };
 
 module.exports = utils;
+//# sourceMappingURL=utils.js.map

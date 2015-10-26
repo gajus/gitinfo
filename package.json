@@ -7,7 +7,7 @@
     "info"
   ],
   "version": "1.2.0",
-  "main": "src/gitinfo.js",
+  "main": "./dist/gitinfo.js",
   "author": {
     "name": "Gajus Kuizinas",
     "email": "gk@anuary.com",
@@ -18,15 +18,13 @@
     "url": "https://github.com/gajus/gitinfo"
   },
   "license": "BSD-3-Clause",
-  "scrips": {
-    "test": "gulp test"
+  "scripts": {
+    "build": "node ./node_modules/.bin/pragmatist build",
+    "test": "node ./node_modules/.bin/pragmatist lint test"
   },
   "devDependencies": {
     "chai": "^3.3.0",
-    "gitdown": "^2.0.2",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^1.0.0",
-    "gulp-mocha": "^2.1.3"
+    "pragmatist": "^1.1.3"
   },
   "dependencies": {
     "ini": "^1.3.4"

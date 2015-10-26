@@ -1,26 +1,38 @@
-var expect = require('chai').expect,
-    utils = require('../src/utils');
+import {
+    expect
+} from 'chai';
 
-describe('utils', function () {
-    describe('.parseRemoteOriginURL()', function () {
-        it('parses HTTPS URL', function () {
-            expect(utils.parseRemoteOriginURL('https://github.com/gajus/gitinfo.git')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+import utils from './../src/utils';
+
+describe('utils', () => {
+    describe('.parseRemoteOriginURL()', () => {
+        it('parses HTTPS URL', () => {
+            expect(utils.parseRemoteOriginURL('https://github.com/gajus/gitinfo.git')).to.deep.equal({
+                username: 'gajus',
+                name: 'gitinfo'
+            });
         });
-        it('parses SSH URL', function () {
-            expect(utils.parseRemoteOriginURL('git@github.com:gajus/gitinfo.git')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+        it('parses SSH URL', () => {
+            expect(utils.parseRemoteOriginURL('git@github.com:gajus/gitinfo.git')).to.deep.equal({
+                username: 'gajus',
+                name: 'gitinfo'
+            });
         });
-        it('parses Subeversion URL', function () {
-            expect(utils.parseRemoteOriginURL('https://github.com/gajus/gitinfo')).to.deep.equal({username: 'gajus', name: 'gitinfo'});
+        it('parses Subeversion URL', () => {
+            expect(utils.parseRemoteOriginURL('https://github.com/gajus/gitinfo')).to.deep.equal({
+                username: 'gajus',
+                name: 'gitinfo'
+            });
         });
-        it('throws an if URL cannot be broken into username and name', function () {
-            expect(function () {
+        it('throws an if URL cannot be broken into username and name', () => {
+            expect(() => {
                 utils.parseRemoteOriginURL('http://gajus.com/blog/some/post');
             }).to.throw(Error, 'Invalid remote origin URL ("http://gajus.com/blog/some/post").');
         });
     });
 
-    describe('.trim()', function () {
-        it('trims whitespaces, tabs and newlines', function () {
+    describe('.trim()', () => {
+        it('trims whitespaces, tabs and newlines', () => {
             expect(utils.trim('  \tsomeText with spaces\n')).to.equal('someText with spaces');
         });
     });

@@ -1,4 +1,4 @@
-<h1 id="gitinfo">gitinfo</h1>
+# gitinfo
 
 [![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat)](https://travis-ci.org/gajus/gitinfo)
 [![NPM version](http://img.shields.io/npm/v/gitinfo.svg?style=flat)](https://www.npmjs.org/package/gitinfo)
@@ -7,11 +7,12 @@ Get info about a local clone of a GitHub repository.
 
 `gitinfo` is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
 
-<h2 id="gitinfo-api">API</h2>
+## API
 
 ```js
-var gitinfo = require('gitinfo'),
-    repository;
+import gitinfo from 'gitinfo';
+
+let repository;
 
 /**
  * @typedef config
@@ -73,7 +74,7 @@ repository.sha();
 // dcc075287eb8f6eb4ef34133a4747d2b50b28306
 ```
 
-<h2 id="gitinfo-download">Download</h2>
+## Download
 
 Download using NPM:
 
