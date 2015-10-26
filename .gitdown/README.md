@@ -24,46 +24,53 @@ var gitinfo = require('gitinfo'),
 repository = gitinfo();
 
 /**
- * @return {String} Absolute path to the .git/ directory.
+ * @returns {string} Absolute path to the .git/ directory.
  */
 repository.gitPath();
 
 // /.git
 
 /**
- * @return {String} Username of the repository author.
+ * @returns {string} Username of the repository author.
  */
 repository.username();
 
 // gajus
 
 /**
- * @return {String} Repository name.
+ * @returns {string} Repository name.
  */
 repository.name();
 
 // gitinfo
 
 /**
- * @return {String} Repository URL.
+ * @returns {string} Repository URL.
  */
 repository.url();
 
 // https://github.com/gajus/gitinfo
 
 /**
- * @return {String} Name of the current branch.
+ * @returns {string} Name of the current branch.
  */
 repository.branch();
 
 // master
 
 /**
- * @return {String} Remote URL of the current branch.
+ * @returns {string} Remote URL of the current branch.
  */
 repository.remoteURL();
 
 // git@github.com:gajus/gitinfo.git
+
+/**
+ * @returns {string} Commit SHA of the current branch
+ */
+repository.sha();
+
+// dcc075287eb8f6eb4ef34133a4747d2b50b28306
 ```
 
 ## Download

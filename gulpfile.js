@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
-    gitdown = require('gitdown');
+    gitdown = require('gitdown'),
+    path = require('path');
 
 gulp.task('lint', function () {
     return gulp
@@ -19,7 +20,7 @@ gulp.task('test', ['lint'], function () {
 
 gulp.task('gitdown', function () {
     return gitdown
-        .readFile('.gitdown/README.md')
+        .readFile(path.resolve('.gitdown/README.md'))
         .writeFile('README.md');
 });
 
