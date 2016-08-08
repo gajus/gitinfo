@@ -1,13 +1,8 @@
 language: node_js
 node_js:
-    - '4.1'
-    - '4.0'
-    - '0.11'
-    - '0.10'
-install:
-    - npm install
-before_script:
-    - npm install -g gulp
+    - 6
+    - 5
+    - 4
 script: gulp test
 notifications:
     email: false
