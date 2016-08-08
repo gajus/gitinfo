@@ -20,7 +20,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --copy-files",
-    "test": "mocha --compilers js:babel-register ./tests",
+    "test": "npm run lint; mocha --compilers js:babel-register ./tests",
     "lint": "eslint ./src ./tests"
   },
   "devDependencies": {
