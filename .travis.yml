@@ -3,7 +3,6 @@ node_js:
     - 6
     - 5
     - 4
-script: gulp test
 notifications:
     email: false
 sudo: false
