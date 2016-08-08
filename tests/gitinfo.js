@@ -1,10 +1,9 @@
+import fs from 'fs';
+import path from 'path';
 import {
     expect
 } from 'chai';
-
 import gitinfo from './../src/gitinfo.js';
-import fs from 'fs';
-import path from 'path';
 
 describe('gitinfo', () => {
     let repository;

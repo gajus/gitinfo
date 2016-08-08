@@ -1,10 +1,6 @@
 import fs from 'fs';
-import ini from 'ini';
 import URL from 'url';
-
-let utils;
-
-utils = {};
+import ini from 'ini';
 
 /**
  * Read INI file into an object.
@@ -13,7 +9,7 @@ utils = {};
  * @param {string} name
  * @returns {Object}
  */
-utils.parseINI = (name) => {
+export const parseINI = (name) => {
     let config;
 
     if (!fs.existsSync(name)) {
@@ -33,17 +29,17 @@ utils.parseINI = (name) => {
  * @returns {string} repository.username
  * @returns {string} repository.name
  */
-utils.parseRemoteOriginURL = (input) => {
+export const parseRemoteOriginURL = (input) => {
     let url;
 
     // git@github.com:gajus/gitdown.git
     // https://github.com/gajus/gitdown.git
     // https://github.com/gajus/gitdown
 
-    if (input.indexOf('com:') !== -1) {
-        url = input.split('com:')[1];
-    } else {
+    if (input.indexOf('com:') === -1) {
         url = URL.parse(input).path.slice(1);
+    } else {
+        url = input.split('com:')[1];
     }
 
     if (/\.git$/.test(url)) {
@@ -57,8 +53,8 @@ utils.parseRemoteOriginURL = (input) => {
     }
 
     return {
-        username: url[0],
-        name: url[1]
+        name: url[1],
+        username: url[0]
     };
 };
 
@@ -67,7 +63,7 @@ utils.parseRemoteOriginURL = (input) => {
  * @param {string} path
  * @returns {boolean}
  */
-utils.isGitDirectory = (path) => {
+export const isGitDirectory = (path) => {
     try {
         fs.statSync(path + '/HEAD');
         fs.statSync(path + '/objects');
@@ -87,7 +83,7 @@ utils.isGitDirectory = (path) => {
  * @param {string} startPath The path where start the search.
  * @returns {string}
  */
-utils.gitPath = (startPath) => {
+export const gitPath = (startPath) => {
     let dirname,
         gitpath;
 
@@ -112,8 +108,6 @@ utils.gitPath = (startPath) => {
  * @param {string} string A string to be trimmed
  * @returns {string} An initial string without leading and trailing spaces, tabs, newlines
  */
-utils.trim = (string) => {
+export const trim = (string) => {
     return string.replace(/^\s+|\s+$/g, '');
 };
-
-module.exports = utils;

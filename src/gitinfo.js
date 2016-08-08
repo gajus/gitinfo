@@ -1,6 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import utils from './utils';
+import {
+    parseRemoteOriginURL,
+    trim,
+    parseINI,
+    isGitDirectory
+} from './utils';
 
 /**
  * @typedef config
@@ -12,15 +17,14 @@ import utils from './utils';
  * @returns {Object}
  */
 export default (config = {}) => {
-    let gitPath,
-        gitinfo;
+    let gitPath;
 
     config.gitPath = config.gitPath || __dirname;
 
-    gitinfo = {};
+    const gitinfo = {};
 
     /**
-     * @return {string} Repository URL.
+     * @returns {string} Repository URL.
      */
     gitinfo.url = () => {
         return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
@@ -30,22 +34,18 @@ export default (config = {}) => {
      * Gets name of the current branch.
      *
      * @see http://stackoverflow.com/a/12142066/368691
-     * @return {string}
+     * @returns {string}
      */
     gitinfo.branch = () => {
-        let branch,
-            head,
-            name;
-
-        name = gitPath + '/HEAD';
+        const name = gitPath + '/HEAD';
 
         if (!fs.existsSync(name)) {
             throw new Error('Git HEAD ("' + name + '") does not exist.');
         }
 
-        head = fs.readFileSync(name, {encoding: 'utf8'});
+        const head = fs.readFileSync(name, {encoding: 'utf8'});
 
-        branch = head.match(/^ref: refs\/heads\/(.*)$/m);
+        const branch = head.match(/^ref: refs\/heads\/(.*)$/m);
 
         if (!branch) {
             throw new Error('Cannot get the current branch name.');
@@ -57,18 +57,12 @@ export default (config = {}) => {
     /**
      * Get the remote URL of the current branch.
      *
-     * @return {string}
+     * @returns {string}
      */
     gitinfo.remoteURL = () => {
-        let branch,
-            branchName,
-            config,
-            remote;
-
-        branchName = gitinfo.branch();
-        config = gitinfo.config();
-
-        branch = config['branch "' + branchName + '"'];
+        const branchName = gitinfo.branch();
+        const gitConfig = gitinfo.config();
+        const branch = gitConfig['branch "' + branchName + '"'];
 
         if (!branch) {
             throw new Error('Branch ("' + branchName + '") definition does not exist in the config.');
@@ -76,7 +70,7 @@ export default (config = {}) => {
             throw new Error('Branch ("' + branchName + '") does not define "remote".');
         }
 
-        remote = config['remote "' + branch.remote + '"'];
+        const remote = gitConfig['remote "' + branch.remote + '"'];
 
         if (!remote) {
             throw new Error('Remote ("' + branch.remote + '") definition does not exist in the config.');
@@ -88,43 +82,42 @@ export default (config = {}) => {
     };
 
     /**
-     * @return {string} Absolute path to the .git/ directory.
+     * @returns {string} Absolute path to the .git/ directory.
      */
     gitinfo.gitPath = () => {
         return gitPath;
     };
 
     /**
-     * @return {string} Username of the repository author.
+     * @returns {string} Username of the repository author.
      */
     gitinfo.username = () => {
-        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).username;
+        return parseRemoteOriginURL(gitinfo.remoteURL()).username;
     };
 
     /**
-     * @return {string} Repository name.
+     * @returns {string} Repository name.
      */
     gitinfo.name = () => {
-        return utils.parseRemoteOriginURL(gitinfo.remoteURL()).name;
+        return parseRemoteOriginURL(gitinfo.remoteURL()).name;
     };
 
     /**
      * @returns {string} Commit SHA of the current branch
      */
     gitinfo.sha = () => {
-        let branch,
-            sha,
-            shaFile;
+        let sha;
 
-        branch = gitinfo.branch();
-        shaFile = path.join(gitPath, 'refs', 'heads', branch);
+        const branch = gitinfo.branch();
+        const shaFile = path.join(gitPath, 'refs', 'heads', branch);
 
         try {
             sha = fs.readFileSync(shaFile, {encoding: 'utf8'});
         } catch (err) {
             throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
         }
-        return utils.trim(sha);
+
+        return trim(sha);
     };
 
     /**
@@ -133,13 +126,13 @@ export default (config = {}) => {
      * @returns {Object}
      */
     gitinfo.config = () => {
-        return utils.parseINI(gitPath + '/config');
+        return parseINI(gitPath + '/config');
     };
 
-    if (utils.isGitDirectory(config.gitPath)) {
+    if (isGitDirectory(config.gitPath)) {
         gitPath = config.gitPath;
     } else {
-        gitPath = utils.gitPath(config.gitPath);
+        gitPath = gitPath(config.gitPath);
     }
 
     if (!gitPath) {
