@@ -1,7 +1,7 @@
 # gitinfo
 
-[![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat)](https://travis-ci.org/gajus/gitinfo)
-[![NPM version](http://img.shields.io/npm/v/gitinfo.svg?style=flat)](https://www.npmjs.org/package/gitinfo)
+[![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat-square)](https://travis-ci.org/gajus/gitinfo)
+[![NPM version](http://img.shields.io/npm/v/gitinfo.svg?style=flat-square)](https://www.npmjs.org/package/gitinfo)
 
 Get info about a local clone of a GitHub repository.
 
