@@ -5,6 +5,7 @@
     "env": {
         "development": {
             "plugins": [
+                "transform-object-rest-spread",
                 "syntax-flow",
                 "typecheck",
                 "transform-flow-strip-types",
@@ -13,6 +14,7 @@
         },
         "production": {
             "plugins": [
+                "transform-object-rest-spread",
                 "syntax-flow",
                 "transform-flow-strip-types"
             ]
