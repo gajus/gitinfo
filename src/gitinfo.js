@@ -15,9 +15,7 @@ type TypeConfig = {
 };
 
 export default (config: TypeConfig = {}): Object => {
-
-    config.gitPath = config.gitPath || __dirname;
-    let gitPath: string;
+    let gitPath: string|null = null;
 
     const gitinfo = {};
 
@@ -127,6 +125,8 @@ export default (config: TypeConfig = {}): Object => {
         return parseINI(gitPath + '/config');
     };
 
+    config.gitPath = config.gitPath || __dirname;
+
     if (isGitDirectory(config.gitPath)) {
         gitPath = config.gitPath;
     } else {
@@ -134,7 +134,7 @@ export default (config: TypeConfig = {}): Object => {
     }
 
     /* istanbul ignore next */
-    if (!gitPath) {
+    if (gitPath === null) {
         throw new Error('config.gitPath is not a descendant of .git/ director.');
     }
 
