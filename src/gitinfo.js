@@ -15,7 +15,7 @@ type TypeConfig = {
 };
 
 export default (config: TypeConfig = {}): Object => {
-    let gitPath: string|null = null;
+    let gitPath: string|null;
 
     const gitinfo = {};
 
@@ -126,6 +126,8 @@ export default (config: TypeConfig = {}): Object => {
     };
 
     config.gitPath = config.gitPath || __dirname;
+
+    gitPath = null;
 
     if (isGitDirectory(config.gitPath)) {
         gitPath = config.gitPath;
