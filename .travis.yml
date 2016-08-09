@@ -9,6 +9,7 @@ cache:
 before_install:
     - npm install --global npm@3
 script:
+    - export NODE_ENV=development
     - npm run build
     - npm run lint
     - nyc --silent npm run test
