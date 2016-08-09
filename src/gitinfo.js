@@ -39,6 +39,7 @@ export default (config = {}) => {
     gitinfo.branch = () => {
         const name = gitPath + '/HEAD';
 
+        /* istanbul ignore next */
         if (!fs.existsSync(name)) {
             throw new Error('Git HEAD ("' + name + '") does not exist.');
         }
@@ -47,6 +48,7 @@ export default (config = {}) => {
 
         const branch = head.match(/^ref: refs\/heads\/(.*)$/m);
 
+        /* istanbul ignore next */
         if (!branch) {
             throw new Error('Cannot get the current branch name.');
         }
@@ -64,6 +66,7 @@ export default (config = {}) => {
         const gitConfig = gitinfo.config();
         const branch = gitConfig['branch "' + branchName + '"'];
 
+        /* istanbul ignore next */
         if (!branch) {
             throw new Error('Branch ("' + branchName + '") definition does not exist in the config.');
         } else if (!branch.remote) {
@@ -72,6 +75,7 @@ export default (config = {}) => {
 
         const remote = gitConfig['remote "' + branch.remote + '"'];
 
+        /* istanbul ignore next */
         if (!remote) {
             throw new Error('Remote ("' + branch.remote + '") definition does not exist in the config.');
         } else if (!remote.url) {
@@ -114,6 +118,7 @@ export default (config = {}) => {
         try {
             sha = fs.readFileSync(shaFile, {encoding: 'utf8'});
         } catch (err) {
+            /* istanbul ignore next */
             throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
         }
 
@@ -135,6 +140,7 @@ export default (config = {}) => {
         gitPath = gitPath(config.gitPath);
     }
 
+    /* istanbul ignore next */
     if (!gitPath) {
         throw new Error('config.gitPath is not a descendant of .git/ director.');
     }

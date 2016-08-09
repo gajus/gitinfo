@@ -12,6 +12,7 @@ import ini from 'ini';
 export const parseINI = (name) => {
     let config;
 
+    /* istanbul ignore next */
     if (!fs.existsSync(name)) {
         throw new Error('INI file ("' + name + '") does not exist.');
     }
@@ -48,6 +49,7 @@ export const parseRemoteOriginURL = (input) => {
 
     url = url.split('/');
 
+    /* istanbul ignore next */
     if (url.length !== 2) {
         throw new Error('Invalid remote origin URL ("' + input + '").');
     }
