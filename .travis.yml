@@ -9,7 +9,7 @@ script:
     - npm run build
     - npm run lint
     - nyc --silent npm run test
-    - nyc report --reporter=text-lcov | coveralls -v
+    - nyc report --reporter=text-lcov | coveralls
     - nyc check-coverage --lines 90
 notifications:
     email: false
