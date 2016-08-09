@@ -1,3 +1,5 @@
+// @flow
+
 import fs from 'fs';
 import URL from 'url';
 import ini from 'ini';
@@ -38,7 +40,14 @@ export const parseRemoteOriginUrl = (input: string): TypeRepository => {
     // https://github.com/gajus/gitdown
 
     if (input.indexOf('com:') === -1) {
-        url = URL.parse(input).path.slice(1);
+        const parsedUrl = URL.parse(input);
+
+        if (parsedUrl && parsedUrl.path) {
+            url = parsedUrl.path.slice(1);
+        } else {
+            /* istanbul ignore next */
+            throw new Error('Cannot parse origin URL.');
+        }
     } else {
         url = input.split('com:')[1];
     }
@@ -86,8 +95,6 @@ export const findGitPath = (startPath: string): string => {
     let dirname,
         gitpath;
 
-    gitpath = false;
-
     dirname = startPath;
 
     do {
@@ -99,6 +106,11 @@ export const findGitPath = (startPath: string): string => {
 
         dirname = fs.realpathSync(dirname + '/..');
     } while (fs.existsSync(dirname) && dirname !== '/');
+
+    /* istanbul ignore next */
+    if (!gitpath) {
+        throw new Error('Cannot locate .git directory.');
+    }
 
     return gitpath;
 };

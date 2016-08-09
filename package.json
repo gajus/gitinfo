@@ -35,6 +35,7 @@
     "coveralls": "^2.11.12",
     "eslint": "^3.2.2",
     "eslint-config-canonical": "^1.7.12",
+    "flow-bin": "^0.30.0",
     "mocha": "^3.0.2",
     "nyc": "^7.1.0",
     "semantic-release": "^4.3.5"

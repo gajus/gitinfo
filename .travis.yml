@@ -12,6 +12,7 @@ script:
     - export NODE_ENV=development
     - npm run build
     - npm run lint
+    - flow
     - nyc --silent npm run test
     - nyc report --reporter=text-lcov | coveralls
     - nyc check-coverage --lines 90

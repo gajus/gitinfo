@@ -1,3 +1,5 @@
+// @flow
+
 import fs from 'fs';
 import path from 'path';
 import {
@@ -12,13 +14,24 @@ import {
  * @property gitPath Path to the .git directory (default: __dirname).
  */
 type TypeConfig = {
-    gitPath: string
+    gitPath?: string
 };
 
-export default (config: TypeConfig = {}): Object => {
-    let gitPath: string|null;
-
+export default (userConfig: TypeConfig = {}): Object => {
     const gitinfo = {};
+
+    const config = {
+        gitPath: __dirname,
+        ...userConfig
+    };
+
+    const gitPath = (() => {
+        if (isGitDirectory(config.gitPath)) {
+            return config.gitPath;
+        } else {
+            return findGitPath(config.gitPath);
+        }
+    })();
 
     /**
      * @returns GitHub repository URL.
@@ -125,21 +138,6 @@ export default (config: TypeConfig = {}): Object => {
     gitinfo.getConfig = (): Object => {
         return parseIni(gitPath + '/config');
     };
-
-    config.gitPath = config.gitPath || __dirname;
-
-    gitPath = null;
-
-    if (isGitDirectory(config.gitPath)) {
-        gitPath = config.gitPath;
-    } else {
-        gitPath = findGitPath(config.gitPath);
-    }
-
-    /* istanbul ignore next */
-    if (gitPath === null) {
-        throw new Error('config.gitPath is not a descendant of .git/ director.');
-    }
 
     return gitinfo;
 };
