@@ -2,9 +2,9 @@
 
 import fs from 'fs';
 import path from 'path';
+import R from 'ramda';
 import {
     parseRemoteOriginUrl,
-    trim,
     parseIni,
     isGitDirectory,
     findGitPath
@@ -129,7 +129,7 @@ export default (userConfig: TypeConfig = {}): Object => {
             throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
         }
 
-        return trim(sha);
+        return R.trim(sha);
     };
 
     /**

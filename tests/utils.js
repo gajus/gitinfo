@@ -6,8 +6,7 @@ import {
 } from 'chai';
 import {
     findGitPath,
-    parseRemoteOriginUrl,
-    trim
+    parseRemoteOriginUrl
 } from './../src/utils';
 
 describe('utils', () => {
@@ -44,11 +43,6 @@ describe('utils', () => {
 
                 expect(resolvedPath).to.equal(targetPath);
             });
-        });
-    });
-    describe('trim()', () => {
-        it('trims whitespaces, tabs and newlines', () => {
-            expect(trim('  \tsomeText with spaces\n')).to.equal('someText with spaces');
         });
     });
 });
