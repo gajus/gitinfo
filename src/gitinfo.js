@@ -20,7 +20,7 @@ export default (config: TypeConfig = {}): Object => {
     const gitinfo = {};
 
     /**
-     * @returns Repository URL.
+     * @returns GitHub repository URL.
      */
     gitinfo.url = (): string => {
         return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();

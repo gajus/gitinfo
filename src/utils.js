@@ -104,7 +104,7 @@ export const gitPath = (startPath: string): string => {
 };
 
 /**
- * @param value A string to be trimmed
+ * @param value A string to be trimmed.
  * @returns An initial string without leading and trailing spaces, tabs, newlines
  */
 export const trim = (value: string): string => {
