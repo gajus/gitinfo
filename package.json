@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^1.0.3",
     "babel-plugin-ramda": "^1.1.5",
     "babel-plugin-syntax-flow": "^6.13.0",

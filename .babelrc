@@ -5,6 +5,7 @@
     "env": {
         "development": {
             "plugins": [
+                "add-module-exports",
                 "ramda",
                 "transform-object-rest-spread",
                 "syntax-flow",
@@ -15,6 +16,7 @@
         },
         "production": {
             "plugins": [
+                "add-module-exports",
                 "ramda",
                 "transform-object-rest-spread",
                 "syntax-flow",
