@@ -15,8 +15,6 @@ Get info about a local clone of a GitHub repository.
 ```js
 import gitinfo from 'gitinfo';
 
-let repository;
-
 /**
  * @typedef config
  * @property {String} gitPath Path to the .git directory (default: __dirname).
@@ -25,7 +23,7 @@ let repository;
 /**
  * @param {config} config
  */
-repository = gitinfo();
+const repository = gitinfo();
 
 /**
  * @returns {string} Absolute path to the .git/ directory.
