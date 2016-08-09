@@ -14,6 +14,8 @@ script:
     - nyc --silent npm run test
     - nyc report --reporter=text-lcov | coveralls
     - nyc check-coverage --lines 90
+after_success:
+    - semantic-release pre && npm publish && semantic-release post
 notifications:
     email: false
 sudo: false
