@@ -6,10 +6,8 @@ import ini from 'ini';
  * Read INI file into an object.
  *
  * @access protected
- * @param {string} name
- * @returns {Object}
  */
-export const parseINI = (name) => {
+export const parseINI = (name: string): Object => {
     let config;
 
     /* istanbul ignore next */
@@ -23,14 +21,16 @@ export const parseINI = (name) => {
     return config;
 };
 
+type TypeRepository = {
+    username: string,
+    name: string
+};
+
 /**
  * @access protected
- * @param {string} input Supported Git remote origin URL (https, git or SVN).
- * @returns {Object} repository
- * @returns {string} repository.username
- * @returns {string} repository.name
+ * @param input Supported Git remote origin URL (https, git or SVN).
  */
-export const parseRemoteOriginURL = (input) => {
+export const parseRemoteOriginURL = (input: string): TypeRepository => {
     let url;
 
     // git@github.com:gajus/gitdown.git
@@ -62,10 +62,8 @@ export const parseRemoteOriginURL = (input) => {
 
 /**
  * @access protected
- * @param {string} path
- * @returns {boolean}
  */
-export const isGitDirectory = (path) => {
+export const isGitDirectory = (path: string): boolean => {
     try {
         fs.statSync(path + '/HEAD');
         fs.statSync(path + '/objects');
@@ -82,10 +80,9 @@ export const isGitDirectory = (path) => {
  * Ascend the system's file tree looking for .git/ directory.
  *
  * @access protected
- * @param {string} startPath The path where start the search.
- * @returns {string}
+ * @param startPath The path where start the search.
  */
-export const gitPath = (startPath) => {
+export const gitPath = (startPath: string): string => {
     let dirname,
         gitpath;
 
@@ -107,9 +104,9 @@ export const gitPath = (startPath) => {
 };
 
 /**
- * @param {string} string A string to be trimmed
- * @returns {string} An initial string without leading and trailing spaces, tabs, newlines
+ * @param value A string to be trimmed
+ * @returns An initial string without leading and trailing spaces, tabs, newlines
  */
-export const trim = (string) => {
-    return string.replace(/^\s+|\s+$/g, '');
+export const trim = (value: string): string => {
+    return value.replace(/^\s+|\s+$/g, '');
 };

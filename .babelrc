@@ -5,7 +5,13 @@
     "env": {
         "development": {
             "plugins": [
-                "istanbul"
+                "istanbul",
+                "transform-flow-strip-types"
+            ]
+        },
+        "production": {
+            "plugins": [
+                "transform-flow-strip-types"
             ]
         }
     }

@@ -8,15 +8,13 @@ import {
 } from './utils';
 
 /**
- * @typedef config
- * @property {string} gitPath Path to the .git directory (default: __dirname).
+ * @property gitPath Path to the .git directory (default: __dirname).
  */
+type TypeConfig = {
+    gitPath: string
+};
 
-/**
- * @param {config} config
- * @returns {Object}
- */
-export default (config = {}) => {
+export default (config: TypeConfig = {}): Object => {
     let gitPath;
 
     config.gitPath = config.gitPath || __dirname;
@@ -24,9 +22,9 @@ export default (config = {}) => {
     const gitinfo = {};
 
     /**
-     * @returns {string} Repository URL.
+     * @returns Repository URL.
      */
-    gitinfo.url = () => {
+    gitinfo.url = (): string => {
         return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
     };
 
@@ -34,9 +32,8 @@ export default (config = {}) => {
      * Gets name of the current branch.
      *
      * @see http://stackoverflow.com/a/12142066/368691
-     * @returns {string}
      */
-    gitinfo.branch = () => {
+    gitinfo.branch = (): string => {
         const name = gitPath + '/HEAD';
 
         /* istanbul ignore next */
@@ -57,11 +54,9 @@ export default (config = {}) => {
     };
 
     /**
-     * Get the remote URL of the current branch.
-     *
-     * @returns {string}
+     * @returns Remote URL of the current branch.
      */
-    gitinfo.remoteURL = () => {
+    gitinfo.remoteURL = (): string => {
         const branchName = gitinfo.branch();
         const gitConfig = gitinfo.config();
         const branch = gitConfig['branch "' + branchName + '"'];
@@ -86,30 +81,30 @@ export default (config = {}) => {
     };
 
     /**
-     * @returns {string} Absolute path to the .git/ directory.
+     * @returns Absolute path to the .git/ directory.
      */
-    gitinfo.gitPath = () => {
+    gitinfo.gitPath = (): string => {
         return gitPath;
     };
 
     /**
-     * @returns {string} Username of the repository author.
+     * @returns Username of the repository author.
      */
-    gitinfo.username = () => {
+    gitinfo.username = (): string => {
         return parseRemoteOriginURL(gitinfo.remoteURL()).username;
     };
 
     /**
-     * @returns {string} Repository name.
+     * @returns Repository name.
      */
-    gitinfo.name = () => {
+    gitinfo.name = (): string => {
         return parseRemoteOriginURL(gitinfo.remoteURL()).name;
     };
 
     /**
-     * @returns {string} Commit SHA of the current branch
+     * @returns Commit SHA of the current branch
      */
-    gitinfo.sha = () => {
+    gitinfo.sha = (): string => {
         let sha;
 
         const branch = gitinfo.branch();
@@ -126,11 +121,9 @@ export default (config = {}) => {
     };
 
     /**
-     * Get object representation of the .git/config file.
-     *
-     * @returns {Object}
+     * @returns Representation of the .git/config file.
      */
-    gitinfo.config = () => {
+    gitinfo.config = (): Object => {
         return parseINI(gitPath + '/config');
     };
 
