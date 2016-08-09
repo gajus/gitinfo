@@ -17,6 +17,10 @@ type TypeConfig = {
     gitPath?: string
 };
 
+/**
+ * @access public
+ * @name gitinfo
+ */
 export default (userConfig: TypeConfig = {}): Object => {
     const gitinfo = {};
 
@@ -34,6 +38,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     })();
 
     /**
+     * @access public
      * @returns GitHub repository URL.
      */
     gitinfo.getGithubUrl = (): string => {
@@ -41,9 +46,9 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
-     * Gets name of the current branch.
-     *
      * @see http://stackoverflow.com/a/12142066/368691
+     * @access public
+     * @returns Name of the current branch.
      */
     gitinfo.getBranchName = (): string => {
         const name = gitPath + '/HEAD';
@@ -66,6 +71,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Remote URL of the current branch.
      */
     gitinfo.getRemoteUrl = (): string => {
@@ -93,6 +99,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Absolute path to the .git/ directory.
      */
     gitinfo.getGitPath = (): string => {
@@ -100,6 +107,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Username of the repository author.
      */
     gitinfo.getUsername = (): string => {
@@ -107,6 +115,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Repository name.
      */
     gitinfo.getName = (): string => {
@@ -114,6 +123,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Commit SHA of the current branch.
      */
     gitinfo.getHeadSha = (): string => {
@@ -133,6 +143,7 @@ export default (userConfig: TypeConfig = {}): Object => {
     };
 
     /**
+     * @access public
      * @returns Representation of the .git/config file.
      */
     gitinfo.getConfig = (): Object => {

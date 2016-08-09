@@ -5,7 +5,7 @@ import URL from 'url';
 import ini from 'ini';
 
 /**
- * Read INI file into an object.
+ * Converts [INI](https://en.wikipedia.org/wiki/INI_file) string into an object.
  *
  * @access protected
  */
@@ -29,6 +29,9 @@ type TypeRepository = {
 };
 
 /**
+ * Extracts information about the the repository from the
+ * supplied URL (presumably, the remote origin URL).
+ *
  * @access protected
  * @param input Supported Git remote origin URL (https, git or SVN).
  */
@@ -70,6 +73,8 @@ export const parseRemoteOriginUrl = (input: string): TypeRepository => {
 };
 
 /**
+ * Tells whether a supplied path is a .git directory.
+ *
  * @access protected
  */
 export const isGitDirectory = (path: string): boolean => {
@@ -86,10 +91,10 @@ export const isGitDirectory = (path: string): boolean => {
 };
 
 /**
- * Ascend the system's file tree looking for .git/ directory.
+ * Finds a .git directory by ascending the directory tree.
  *
  * @access protected
- * @param startPath The path where start the search.
+ * @param startPath The path where to start the search.
  */
 export const findGitPath = (startPath: string): string => {
     let dirname,
