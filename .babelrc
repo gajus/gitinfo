@@ -5,12 +5,14 @@
     "env": {
         "development": {
             "plugins": [
+                "syntax-flow",
                 "istanbul",
                 "transform-flow-strip-types"
             ]
         },
         "production": {
             "plugins": [
+                "syntax-flow",
                 "transform-flow-strip-types"
             ]
         }
