@@ -3,6 +3,8 @@ node_js:
     - 6
     - 5
     - 4
+before_install:
+    - npm install --global npm@3
 script:
     - npm run build
     - npm run lint
