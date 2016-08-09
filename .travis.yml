@@ -5,8 +5,10 @@ node_js:
     - 4
 script:
     - npm run build
-    - npm run test
     - npm run lint
+    - nyc --silent npm run test
+    - nyc report --reporter=text-lcov | coveralls -v
+    - nyc check-coverage --lines 90
 notifications:
     email: false
 sudo: false
