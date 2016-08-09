@@ -6,8 +6,8 @@
         "development": {
             "plugins": [
                 "syntax-flow",
-                "istanbul",
-                "transform-flow-strip-types"
+                "transform-flow-strip-types",
+                "istanbul"
             ]
         },
         "production": {
