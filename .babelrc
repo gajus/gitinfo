@@ -6,6 +6,7 @@
         "development": {
             "plugins": [
                 "syntax-flow",
+                "typecheck",
                 "transform-flow-strip-types",
                 "istanbul"
             ]
