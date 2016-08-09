@@ -13,39 +13,39 @@ describe('gitinfo', () => {
             gitPath: path.resolve(__dirname, './dummy_git')
         });
     });
-    describe('.gitPath()', () => {
+    describe('.getGitPath()', () => {
         it('returns absolute path to the .git directory', () => {
-            expect(repository.gitPath()).to.equal(fs.realpathSync(path.resolve(__dirname, './dummy_git/')));
+            expect(repository.getGitPath()).to.equal(fs.realpathSync(path.resolve(__dirname, './dummy_git/')));
         });
     });
-    describe('.branch()', () => {
+    describe('.getBranchName()', () => {
         it('returns name of the current branch', () => {
-            expect(repository.branch()).to.equal('master');
+            expect(repository.getBranchName()).to.equal('master');
         });
     });
-    describe('.remoteURL()', () => {
+    describe('.getRemoteUrl()', () => {
         it('gets the remote URL of the current branch.', () => {
-            expect(repository.remoteURL()).to.equal('git@github.com:foo/bar.git');
+            expect(repository.getRemoteUrl()).to.equal('git@github.com:foo/bar.git');
         });
     });
-    describe('.username()', () => {
+    describe('.getUsername()', () => {
         it('returns the username of the repository author', () => {
-            expect(repository.username()).to.equal('foo');
+            expect(repository.getUsername()).to.equal('foo');
         });
     });
-    describe('.name()', () => {
+    describe('.getName()', () => {
         it('returns name of the repository', () => {
-            expect(repository.name()).to.equal('bar');
+            expect(repository.getName()).to.equal('bar');
         });
     });
-    describe('.url()', () => {
+    describe('.getGithubUrl()', () => {
         it('returns URL of the repository', () => {
-            expect(repository.url()).to.equal('https://github.com/foo/bar');
+            expect(repository.getGithubUrl()).to.equal('https://github.com/foo/bar');
         });
     });
-    describe('.sha()', () => {
+    describe('.getHeadSha()', () => {
         it('returns commit SHA of the current HEAD', () => {
-            expect(repository.sha()).to.equal('dcc075287eb8f6eb4ef34133a4747d2b50b28306');
+            expect(repository.getHeadSha()).to.equal('dcc075287eb8f6eb4ef34133a4747d2b50b28306');
         });
     });
 });

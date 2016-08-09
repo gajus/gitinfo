@@ -30,49 +30,49 @@ repository = gitinfo();
 /**
  * @returns {string} Absolute path to the .git/ directory.
  */
-repository.gitPath();
+repository.getGitPath();
 
 // /.git
 
 /**
  * @returns {string} Username of the repository author.
  */
-repository.username();
+repository.getUsername();
 
 // gajus
 
 /**
  * @returns {string} Repository name.
  */
-repository.name();
+repository.getName();
 
 // gitinfo
 
 /**
  * @returns {string} Repository URL.
  */
-repository.url();
+repository.getGithubUrl();
 
 // https://github.com/gajus/gitinfo
 
 /**
  * @returns {string} Name of the current branch.
  */
-repository.branch();
+repository.getBranchName();
 
 // master
 
 /**
  * @returns {string} Remote URL of the current branch.
  */
-repository.remoteURL();
+repository.getRemoteUrl();
 
 // git@github.com:gajus/gitinfo.git
 
 /**
  * @returns {string} Commit SHA of the current branch
  */
-repository.sha();
+repository.getHeadSha();
 
 // dcc075287eb8f6eb4ef34133a4747d2b50b28306
 ```

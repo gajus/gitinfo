@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import {
-    parseRemoteOriginURL,
+    parseRemoteOriginUrl,
     trim,
-    parseINI,
-    isGitDirectory
+    parseIni,
+    isGitDirectory,
+    findGitPath
 } from './utils';
 
 /**
@@ -22,8 +23,8 @@ export default (config: TypeConfig = {}): Object => {
     /**
      * @returns GitHub repository URL.
      */
-    gitinfo.url = (): string => {
-        return 'https://github.com/' + gitinfo.username() + '/' + gitinfo.name();
+    gitinfo.getGithubUrl = (): string => {
+        return 'https://github.com/' + gitinfo.getUsername() + '/' + gitinfo.getName();
     };
 
     /**
@@ -31,7 +32,7 @@ export default (config: TypeConfig = {}): Object => {
      *
      * @see http://stackoverflow.com/a/12142066/368691
      */
-    gitinfo.branch = (): string => {
+    gitinfo.getBranchName = (): string => {
         const name = gitPath + '/HEAD';
 
         /* istanbul ignore next */
@@ -54,9 +55,9 @@ export default (config: TypeConfig = {}): Object => {
     /**
      * @returns Remote URL of the current branch.
      */
-    gitinfo.remoteURL = (): string => {
-        const branchName = gitinfo.branch();
-        const gitConfig = gitinfo.config();
+    gitinfo.getRemoteUrl = (): string => {
+        const branchName = gitinfo.getBranchName();
+        const gitConfig = gitinfo.getConfig();
         const branch = gitConfig['branch "' + branchName + '"'];
 
         /* istanbul ignore next */
@@ -81,31 +82,31 @@ export default (config: TypeConfig = {}): Object => {
     /**
      * @returns Absolute path to the .git/ directory.
      */
-    gitinfo.gitPath = (): string => {
+    gitinfo.getGitPath = (): string => {
         return gitPath;
     };
 
     /**
      * @returns Username of the repository author.
      */
-    gitinfo.username = (): string => {
-        return parseRemoteOriginURL(gitinfo.remoteURL()).username;
+    gitinfo.getUsername = (): string => {
+        return parseRemoteOriginUrl(gitinfo.getRemoteUrl()).username;
     };
 
     /**
      * @returns Repository name.
      */
-    gitinfo.name = (): string => {
-        return parseRemoteOriginURL(gitinfo.remoteURL()).name;
+    gitinfo.getName = (): string => {
+        return parseRemoteOriginUrl(gitinfo.getRemoteUrl()).name;
     };
 
     /**
-     * @returns Commit SHA of the current branch
+     * @returns Commit SHA of the current branch.
      */
-    gitinfo.sha = (): string => {
+    gitinfo.getHeadSha = (): string => {
         let sha;
 
-        const branch = gitinfo.branch();
+        const branch = gitinfo.getBranchName();
         const shaFile = path.join(gitPath, 'refs', 'heads', branch);
 
         try {
@@ -121,8 +122,8 @@ export default (config: TypeConfig = {}): Object => {
     /**
      * @returns Representation of the .git/config file.
      */
-    gitinfo.config = (): Object => {
-        return parseINI(gitPath + '/config');
+    gitinfo.getConfig = (): Object => {
+        return parseIni(gitPath + '/config');
     };
 
     config.gitPath = config.gitPath || __dirname;
@@ -132,7 +133,7 @@ export default (config: TypeConfig = {}): Object => {
     if (isGitDirectory(config.gitPath)) {
         gitPath = config.gitPath;
     } else {
-        gitPath = gitPath(config.gitPath);
+        gitPath = findGitPath(config.gitPath);
     }
 
     /* istanbul ignore next */

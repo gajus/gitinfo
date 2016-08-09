@@ -5,42 +5,42 @@ import {
     expect
 } from 'chai';
 import {
-    gitPath,
-    parseRemoteOriginURL,
+    findGitPath,
+    parseRemoteOriginUrl,
     trim
 } from './../src/utils';
 
 describe('utils', () => {
-    describe('parseRemoteOriginURL()', () => {
+    describe('parseRemoteOriginUrl()', () => {
         it('parses HTTPS URL', () => {
-            expect(parseRemoteOriginURL('https://github.com/gajus/gitinfo.git')).to.deep.equal({
+            expect(parseRemoteOriginUrl('https://github.com/gajus/gitinfo.git')).to.deep.equal({
                 name: 'gitinfo',
                 username: 'gajus'
             });
         });
         it('parses SSH URL', () => {
-            expect(parseRemoteOriginURL('git@github.com:gajus/gitinfo.git')).to.deep.equal({
+            expect(parseRemoteOriginUrl('git@github.com:gajus/gitinfo.git')).to.deep.equal({
                 name: 'gitinfo',
                 username: 'gajus'
             });
         });
         it('parses Subeversion URL', () => {
-            expect(parseRemoteOriginURL('https://github.com/gajus/gitinfo')).to.deep.equal({
+            expect(parseRemoteOriginUrl('https://github.com/gajus/gitinfo')).to.deep.equal({
                 name: 'gitinfo',
                 username: 'gajus'
             });
         });
         it('throws an if URL cannot be broken into username and name', () => {
             expect(() => {
-                parseRemoteOriginURL('http://gajus.com/blog/some/post');
+                parseRemoteOriginUrl('http://gajus.com/blog/some/post');
             }).to.throw(Error, 'Invalid remote origin URL ("http://gajus.com/blog/some/post").');
         });
     });
-    describe('gitPath()', () => {
+    describe('findGitPath()', () => {
         context('a path of a descendant directory that has a parent directory that includes .git directory', () => {
             it('resolves path of the .git directory', () => {
                 const targetPath = path.resolve(__dirname, './../.git');
-                const resolvedPath = gitPath(__dirname);
+                const resolvedPath = findGitPath(__dirname);
 
                 expect(resolvedPath).to.equal(targetPath);
             });

@@ -7,7 +7,7 @@ import ini from 'ini';
  *
  * @access protected
  */
-export const parseINI = (name: string): Object => {
+export const parseIni = (name: string): Object => {
     let config;
 
     /* istanbul ignore next */
@@ -30,7 +30,7 @@ type TypeRepository = {
  * @access protected
  * @param input Supported Git remote origin URL (https, git or SVN).
  */
-export const parseRemoteOriginURL = (input: string): TypeRepository => {
+export const parseRemoteOriginUrl = (input: string): TypeRepository => {
     let url;
 
     // git@github.com:gajus/gitdown.git
@@ -82,7 +82,7 @@ export const isGitDirectory = (path: string): boolean => {
  * @access protected
  * @param startPath The path where start the search.
  */
-export const gitPath = (startPath: string): string => {
+export const findGitPath = (startPath: string): string => {
     let dirname,
         gitpath;
 
