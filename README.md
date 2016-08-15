@@ -6,9 +6,11 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 [![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
-Get info about a local clone of a GitHub repository.
+Gets information about Git repository.
 
-`gitinfo` is designed to be used during the runtime of the script. Querying the data such as "branch" will reflect the local state of the repository.
+<h2 id="gitinfo-implementation">Implementation</h2>
+
+gitinfo reads the contents of the `./git` directory to extract information.
 
 <h2 id="gitinfo-api">API</h2>
 
