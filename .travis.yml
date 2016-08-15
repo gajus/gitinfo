@@ -20,7 +20,7 @@ script:
 after_success:
     - git config --global user.name "semantic-release (via TravisCI)"
     - git config --global user.email "semantic-release@travis"
-    - 'semantic-release pre && (npm run documentation && git commit -m "docs: update documentation" ./*.md && git push) && (NODE_ENV=production npm run build) && npm publish && semantic-release post'
+    - 'semantic-release pre && (NODE_ENV=production npm run build) && npm publish && semantic-release post'
 notifications:
     email: false
 sudo: false
