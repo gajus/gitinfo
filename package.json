@@ -21,12 +21,12 @@
   "scripts": {
     "build": "babel ./src --out-dir ./dist --copy-files",
     "test": "NODE_ENV=development mocha --compilers js:babel-register ./tests",
+    "documentation": "documentation build ./src --format md --access public --output ./.README/API.md && gitdown ./.README/README.md --output-file ./README.md",
     "lint": "eslint ./src ./tests"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-istanbul": "^1.0.3",
     "babel-plugin-ramda": "^1.1.5",
     "babel-plugin-syntax-flow": "^6.13.0",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
@@ -36,9 +36,11 @@
     "babel-register": "^6.11.6",
     "chai": "^3.3.0",
     "coveralls": "^2.11.12",
+    "documentation": "^4.0.0-beta9",
     "eslint": "^3.2.2",
     "eslint-config-canonical": "^1.7.12",
     "flow-bin": "^0.30.0",
+    "gitdown": "^2.4.10",
     "mocha": "^3.0.2",
     "nyc": "^7.1.0",
     "semantic-release": "^4.3.5"
