@@ -4,6 +4,8 @@ import fs from 'fs';
 import URL from 'url';
 import ini from 'ini';
 
+// test release
+
 /**
  * Converts [INI](https://en.wikipedia.org/wiki/INI_file) string into an object.
  *
