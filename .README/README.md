@@ -12,7 +12,7 @@ Get info about a local clone of a GitHub repository.
 
 ## API
 
-{"gitdown": "include", "file": "./API.md"}
+[./API.md](./API.md) documentation.
 
 ## Download
 
