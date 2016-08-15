@@ -12,40 +12,7 @@ Get info about a local clone of a GitHub repository.
 
 <h2 id="gitinfo-api">API</h2>
 
-<h1 id="gitinfo">gitinfo</h1>
-
-<h2 id="gitinfo-getgithuburl">getGithubUrl</h2>
-
-Returns **Any** GitHub repository URL.
-
-<h2 id="gitinfo-getbranchname">getBranchName</h2>
-
-Returns **Any** Name of the current branch.
-
-<h2 id="gitinfo-getremoteurl">getRemoteUrl</h2>
-
-Returns **Any** Remote URL of the current branch.
-
-<h2 id="gitinfo-getgitpath">getGitPath</h2>
-
-Returns **Any** Absolute path to the .git/ directory.
-
-<h2 id="gitinfo-getusername">getUsername</h2>
-
-Returns **Any** Username of the repository author.
-
-<h2 id="gitinfo-getname">getName</h2>
-
-Returns **Any** Repository name.
-
-<h2 id="gitinfo-getheadsha">getHeadSha</h2>
-
-Returns **Any** Commit SHA of the current branch.
-
-<h2 id="gitinfo-getconfig">getConfig</h2>
-
-Returns **Any** Representation of the .git/config file.
-
+[./API.md](./API.md) documentation.
 
 <h2 id="gitinfo-download">Download</h2>
 
