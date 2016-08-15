@@ -16,6 +16,7 @@ script:
     - nyc --silent npm run test
     - nyc report --reporter=text-lcov | coveralls
     - nyc check-coverage --lines 90
+    - conventional-changelog-lint --from=HEAD~$(git --no-pager rev-list master..HEAD --count)
 after_success:
     - git config --global user.name "semantic-release (via TravisCI)"
     - git config --global user.email "semantic-release@travis"

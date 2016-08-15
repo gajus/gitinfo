@@ -3,6 +3,7 @@ coverage
 dist
 *.log
 .*
+!.conventional-changelog-lintrc
 !.gitignore
 !.npmignore
 !.babelrc
