@@ -12,8 +12,9 @@ before_script:
     - npm prune
     - curl -Lo travis_after_all.py https://git.io/vLSON
 script:
-    - export NODE_ENV=development
-    - npm run build
+    - NODE_ENV=development npm run build
+    - rm -fr ./node_modules
+    - NODE_ENV=production npm run build
     - npm run lint
     - flow
     - nyc --silent npm run test
@@ -25,7 +26,7 @@ after_success:
     - export $(cat .to_export_back)
     - git config --global user.name "semantic-release (via TravisCI)"
     - git config --global user.email "semantic-release@travis"
-    - 'semantic-release pre && (NODE_ENV=production npm run build) && npm publish && semantic-release post'
+    - semantic-release pre && npm publish && semantic-release post
 notifications:
     email: false
 sudo: false
