@@ -9,7 +9,7 @@ before_script:
     - curl -Lo travis_after_all.py https://git.io/vLSON
 script:
     - NODE_ENV=development npm run build
-    - rm -fr ./node_modules
+    - rm -fr ./dist
     - NODE_ENV=production npm run build
     - npm run lint
     - flow
