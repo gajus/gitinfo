@@ -8,6 +8,9 @@ cache:
     - node_modules
 before_install:
     - npm install --global npm@3
+before_script:
+    - npm prune
+    - curl -Lo travis_after_all.py https://git.io/vLSON
 script:
     - export NODE_ENV=development
     - npm run build
@@ -18,8 +21,8 @@ script:
     - nyc check-coverage --lines 90
     - conventional-changelog-lint --from=HEAD~$(git --no-pager rev-list master..HEAD --count)
 after_success:
-    - curl -Lo travis_after_all.py https://git.io/travis_after_all
     - python travis_after_all.py
+    - export $(cat .to_export_back)
     - git config --global user.name "semantic-release (via TravisCI)"
     - git config --global user.email "semantic-release@travis"
     - 'semantic-release pre && (NODE_ENV=production npm run build) && npm publish && semantic-release post'
