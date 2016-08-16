@@ -9,7 +9,6 @@ cache:
 before_install:
     - npm install --global npm@3
 before_script:
-    - npm prune
     - curl -Lo travis_after_all.py https://git.io/vLSON
 script:
     - NODE_ENV=development npm run build
