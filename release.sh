@@ -30,7 +30,7 @@ git merge $TRAVIS_COMMIT
 echo 'before'
 git status
 
-standard-version --message "chore: release %s [skip ci]"
+standard-version --message "chore: release %s"
 
 echo 'after'
 git status
