@@ -1,18 +1,23 @@
 #!/bin/bash
 set -ev
 
-if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then
+if [[ $TRAVIS_PULL_REQUEST = "true" ]]; then
   echo "this is PR, exiting"
   exit 0
 fi
 
-if [[ $TRAVIS_TAG == "true" ]]; then
+echo '$TRAVIS_TAG';
+echo $TRAVIS_TAG;
+
+if [[ $TRAVIS_TAG != "" ]]; then
     NODE_ENV=development npm install --depth 0
     NODE_ENV=production npm run build
 
     npm publish
     exit 0
 fi
+
+env
 
 git config --global user.name 'standard-version'
 git config --global user.email 'standard-version@travis'
