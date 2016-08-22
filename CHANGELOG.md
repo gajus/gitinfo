@@ -1,3 +1,24 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="0.0.0"></a>
+# [0.0.0](https://github.com/gajus/gitinfo/compare/v2.0.3...v0.0.0) (2016-08-22)
+
+
+### Bug Fixes
+
+* automate changelog generation ([27f52bb](https://github.com/gajus/gitinfo/commit/27f52bb))
+* remove redundant deployment scripts ([d0f9fed](https://github.com/gajus/gitinfo/commit/d0f9fed))
+* travis build script ([75baa94](https://github.com/gajus/gitinfo/commit/75baa94))
+* travis build script ([4577685](https://github.com/gajus/gitinfo/commit/4577685))
+* travis build script ([1d76998](https://github.com/gajus/gitinfo/commit/1d76998))
+* travis build script ([3c03929](https://github.com/gajus/gitinfo/commit/3c03929))
+* travis build script ([1644542](https://github.com/gajus/gitinfo/commit/1644542))
+* travis build script ([c59f57b](https://github.com/gajus/gitinfo/commit/c59f57b))
+
+
+
 <a name="0.0.0-semantic-release"></a>
 # 0.0.0-semantic-release (2016-08-22)
 
@@ -183,6 +204,3 @@
 * Silent output. ([160c258](https://github.com/gajus/gitinfo/commit/160c258))
 * Using GitDown. ([2fbe676](https://github.com/gajus/gitinfo/commit/2fbe676))
 * Works if repository is pulled either with SVN, Git or HTTPS. ([a03ddf6](https://github.com/gajus/gitinfo/commit/a03ddf6))
-
-
-
