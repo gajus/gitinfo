@@ -3,6 +3,7 @@ set -ev
 
 if [[ $TRAVIS_PULL_REQUEST = "true" ]]; then
   echo 'this is PR, exiting'
+
   exit 0
 fi
 
@@ -19,6 +20,7 @@ fi
 
 if [[ $(git show --format=%B $TRAVIS_COMMIT) == *"chore: release"* ]]; then
     echo 'this is a release, exiting'
+
     exit 0
 fi;
 
