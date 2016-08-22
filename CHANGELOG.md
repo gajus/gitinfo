@@ -2,6 +2,126 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.34"></a>
+## [2.0.34](https://github.com/gajus/gitinfo/compare/v2.0.33...v2.0.34) (2016-08-22)
+
+
+
+<a name="2.0.33"></a>
+## [2.0.33](https://github.com/gajus/gitinfo/compare/v2.0.32...v2.0.33) (2016-08-22)
+
+
+
+<a name="2.0.32"></a>
+## [2.0.32](https://github.com/gajus/gitinfo/compare/v2.0.31...v2.0.32) (2016-08-22)
+
+
+
+<a name="2.0.31"></a>
+## [2.0.31](https://github.com/gajus/gitinfo/compare/v2.0.30...v2.0.31) (2016-08-22)
+
+
+
+<a name="2.0.30"></a>
+## [2.0.30](https://github.com/gajus/gitinfo/compare/v2.0.29...v2.0.30) (2016-08-22)
+
+
+
+<a name="2.0.29"></a>
+## [2.0.29](https://github.com/gajus/gitinfo/compare/v2.0.28...v2.0.29) (2016-08-22)
+
+
+
+<a name="2.0.28"></a>
+## [2.0.28](https://github.com/gajus/gitinfo/compare/v2.0.27...v2.0.28) (2016-08-22)
+
+
+
+<a name="2.0.27"></a>
+## [2.0.27](https://github.com/gajus/gitinfo/compare/v2.0.26...v2.0.27) (2016-08-22)
+
+
+
+<a name="2.0.26"></a>
+## [2.0.26](https://github.com/gajus/gitinfo/compare/v2.0.25...v2.0.26) (2016-08-22)
+
+
+
+<a name="2.0.25"></a>
+## [2.0.25](https://github.com/gajus/gitinfo/compare/v2.0.24...v2.0.25) (2016-08-22)
+
+
+
+<a name="2.0.24"></a>
+## [2.0.24](https://github.com/gajus/gitinfo/compare/v2.0.23...v2.0.24) (2016-08-22)
+
+
+
+<a name="2.0.23"></a>
+## [2.0.23](https://github.com/gajus/gitinfo/compare/v2.0.22...v2.0.23) (2016-08-22)
+
+
+
+<a name="2.0.22"></a>
+## [2.0.22](https://github.com/gajus/gitinfo/compare/v2.0.21...v2.0.22) (2016-08-22)
+
+
+
+<a name="2.0.21"></a>
+## [2.0.21](https://github.com/gajus/gitinfo/compare/v2.0.20...v2.0.21) (2016-08-22)
+
+
+
+<a name="2.0.20"></a>
+## [2.0.20](https://github.com/gajus/gitinfo/compare/v2.0.19...v2.0.20) (2016-08-22)
+
+
+
+<a name="2.0.19"></a>
+## [2.0.19](https://github.com/gajus/gitinfo/compare/v2.0.18...v2.0.19) (2016-08-22)
+
+
+
+<a name="2.0.18"></a>
+## [2.0.18](https://github.com/gajus/gitinfo/compare/v2.0.17...v2.0.18) (2016-08-22)
+
+
+
+<a name="2.0.17"></a>
+## [2.0.17](https://github.com/gajus/gitinfo/compare/v2.0.16...v2.0.17) (2016-08-22)
+
+
+
+<a name="2.0.16"></a>
+## [2.0.16](https://github.com/gajus/gitinfo/compare/v2.0.15...v2.0.16) (2016-08-22)
+
+
+
+<a name="2.0.15"></a>
+## [2.0.15](https://github.com/gajus/gitinfo/compare/v2.0.14...v2.0.15) (2016-08-22)
+
+
+
+<a name="2.0.14"></a>
+## [2.0.14](https://github.com/gajus/gitinfo/compare/v2.0.13...v2.0.14) (2016-08-22)
+
+
+
+<a name="2.0.13"></a>
+## [2.0.13](https://github.com/gajus/gitinfo/compare/v2.0.12...v2.0.13) (2016-08-22)
+
+
+
+<a name="2.0.12"></a>
+## [2.0.12](https://github.com/gajus/gitinfo/compare/v2.0.11...v2.0.12) (2016-08-22)
+
+
+### Bug Fixes
+
+* correct release.sh script ([62bdb9b](https://github.com/gajus/gitinfo/commit/62bdb9b))
+
+
+
 <a name="2.0.11"></a>
 ## [2.0.11](https://github.com/gajus/gitinfo/compare/v2.0.10...v2.0.11) (2016-08-22)
 
