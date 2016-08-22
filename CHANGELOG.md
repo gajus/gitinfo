@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.8"></a>
+## [2.0.8](https://github.com/gajus/gitinfo/compare/v2.0.4...v2.0.8) (2016-08-22)
+
+
+### Bug Fixes
+
+* automate changelog generation ([27f52bb](https://github.com/gajus/gitinfo/commit/27f52bb))
+* correct release.sh script ([24a68ee](https://github.com/gajus/gitinfo/commit/24a68ee))
+* correct release.sh script ([badfc0a](https://github.com/gajus/gitinfo/commit/badfc0a))
+* correct release.sh script ([9e2f4e8](https://github.com/gajus/gitinfo/commit/9e2f4e8))
+* correct release.sh script ([04fd5d3](https://github.com/gajus/gitinfo/commit/04fd5d3))
+* correct release.sh script ([5c9a2f0](https://github.com/gajus/gitinfo/commit/5c9a2f0))
+* correct release.sh script ([e0a8c7c](https://github.com/gajus/gitinfo/commit/e0a8c7c))
+* correct release.sh script ([2bcbdc6](https://github.com/gajus/gitinfo/commit/2bcbdc6))
+* correct release.sh script ([89809eb](https://github.com/gajus/gitinfo/commit/89809eb))
+* correct release.sh script ([cc7da10](https://github.com/gajus/gitinfo/commit/cc7da10))
+* correct release.sh script ([8476abd](https://github.com/gajus/gitinfo/commit/8476abd))
+* use standard-release ([525605f](https://github.com/gajus/gitinfo/commit/525605f))
+
+
+
 <a name="2.0.7"></a>
 ## [2.0.7](https://github.com/gajus/gitinfo/compare/v2.0.6...v2.0.7) (2016-08-22)
 
