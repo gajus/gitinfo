@@ -24,5 +24,12 @@ echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
 # Use NPM_TOKEN to enable NPM authentication
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
+echo 'before'
+git status
+
 standard-version --message "chore: release %s [skip ci]"
+
+echo 'after'
+git status
+
 git push --follow-tags origin master
