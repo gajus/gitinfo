@@ -2,6 +2,236 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.81"></a>
+## [2.0.81](https://github.com/gajus/gitinfo/compare/v2.0.80...v2.0.81) (2016-08-22)
+
+
+
+<a name="2.0.80"></a>
+## [2.0.80](https://github.com/gajus/gitinfo/compare/v2.0.79...v2.0.80) (2016-08-22)
+
+
+
+<a name="2.0.79"></a>
+## [2.0.79](https://github.com/gajus/gitinfo/compare/v2.0.78...v2.0.79) (2016-08-22)
+
+
+
+<a name="2.0.78"></a>
+## [2.0.78](https://github.com/gajus/gitinfo/compare/v2.0.77...v2.0.78) (2016-08-22)
+
+
+
+<a name="2.0.77"></a>
+## [2.0.77](https://github.com/gajus/gitinfo/compare/v2.0.76...v2.0.77) (2016-08-22)
+
+
+
+<a name="2.0.76"></a>
+## [2.0.76](https://github.com/gajus/gitinfo/compare/v2.0.75...v2.0.76) (2016-08-22)
+
+
+
+<a name="2.0.75"></a>
+## [2.0.75](https://github.com/gajus/gitinfo/compare/v2.0.74...v2.0.75) (2016-08-22)
+
+
+
+<a name="2.0.74"></a>
+## [2.0.74](https://github.com/gajus/gitinfo/compare/v2.0.73...v2.0.74) (2016-08-22)
+
+
+
+<a name="2.0.73"></a>
+## [2.0.73](https://github.com/gajus/gitinfo/compare/v2.0.72...v2.0.73) (2016-08-22)
+
+
+
+<a name="2.0.72"></a>
+## [2.0.72](https://github.com/gajus/gitinfo/compare/v2.0.71...v2.0.72) (2016-08-22)
+
+
+
+<a name="2.0.71"></a>
+## [2.0.71](https://github.com/gajus/gitinfo/compare/v2.0.70...v2.0.71) (2016-08-22)
+
+
+
+<a name="2.0.70"></a>
+## [2.0.70](https://github.com/gajus/gitinfo/compare/v2.0.69...v2.0.70) (2016-08-22)
+
+
+
+<a name="2.0.69"></a>
+## [2.0.69](https://github.com/gajus/gitinfo/compare/v2.0.68...v2.0.69) (2016-08-22)
+
+
+
+<a name="2.0.68"></a>
+## [2.0.68](https://github.com/gajus/gitinfo/compare/v2.0.67...v2.0.68) (2016-08-22)
+
+
+
+<a name="2.0.67"></a>
+## [2.0.67](https://github.com/gajus/gitinfo/compare/v2.0.66...v2.0.67) (2016-08-22)
+
+
+
+<a name="2.0.66"></a>
+## [2.0.66](https://github.com/gajus/gitinfo/compare/v2.0.65...v2.0.66) (2016-08-22)
+
+
+
+<a name="2.0.65"></a>
+## [2.0.65](https://github.com/gajus/gitinfo/compare/v2.0.64...v2.0.65) (2016-08-22)
+
+
+
+<a name="2.0.64"></a>
+## [2.0.64](https://github.com/gajus/gitinfo/compare/v2.0.63...v2.0.64) (2016-08-22)
+
+
+
+<a name="2.0.63"></a>
+## [2.0.63](https://github.com/gajus/gitinfo/compare/v2.0.62...v2.0.63) (2016-08-22)
+
+
+
+<a name="2.0.62"></a>
+## [2.0.62](https://github.com/gajus/gitinfo/compare/v2.0.61...v2.0.62) (2016-08-22)
+
+
+
+<a name="2.0.61"></a>
+## [2.0.61](https://github.com/gajus/gitinfo/compare/v2.0.60...v2.0.61) (2016-08-22)
+
+
+
+<a name="2.0.60"></a>
+## [2.0.60](https://github.com/gajus/gitinfo/compare/v2.0.59...v2.0.60) (2016-08-22)
+
+
+
+<a name="2.0.59"></a>
+## [2.0.59](https://github.com/gajus/gitinfo/compare/v2.0.58...v2.0.59) (2016-08-22)
+
+
+
+<a name="2.0.58"></a>
+## [2.0.58](https://github.com/gajus/gitinfo/compare/v2.0.57...v2.0.58) (2016-08-22)
+
+
+
+<a name="2.0.57"></a>
+## [2.0.57](https://github.com/gajus/gitinfo/compare/v2.0.56...v2.0.57) (2016-08-22)
+
+
+
+<a name="2.0.56"></a>
+## [2.0.56](https://github.com/gajus/gitinfo/compare/v2.0.55...v2.0.56) (2016-08-22)
+
+
+
+<a name="2.0.55"></a>
+## [2.0.55](https://github.com/gajus/gitinfo/compare/v2.0.54...v2.0.55) (2016-08-22)
+
+
+
+<a name="2.0.54"></a>
+## [2.0.54](https://github.com/gajus/gitinfo/compare/v2.0.53...v2.0.54) (2016-08-22)
+
+
+
+<a name="2.0.53"></a>
+## [2.0.53](https://github.com/gajus/gitinfo/compare/v2.0.52...v2.0.53) (2016-08-22)
+
+
+
+<a name="2.0.52"></a>
+## [2.0.52](https://github.com/gajus/gitinfo/compare/v2.0.51...v2.0.52) (2016-08-22)
+
+
+
+<a name="2.0.51"></a>
+## [2.0.51](https://github.com/gajus/gitinfo/compare/v2.0.50...v2.0.51) (2016-08-22)
+
+
+
+<a name="2.0.50"></a>
+## [2.0.50](https://github.com/gajus/gitinfo/compare/v2.0.49...v2.0.50) (2016-08-22)
+
+
+
+<a name="2.0.49"></a>
+## [2.0.49](https://github.com/gajus/gitinfo/compare/v2.0.48...v2.0.49) (2016-08-22)
+
+
+
+<a name="2.0.48"></a>
+## [2.0.48](https://github.com/gajus/gitinfo/compare/v2.0.47...v2.0.48) (2016-08-22)
+
+
+
+<a name="2.0.47"></a>
+## [2.0.47](https://github.com/gajus/gitinfo/compare/v2.0.46...v2.0.47) (2016-08-22)
+
+
+
+<a name="2.0.46"></a>
+## [2.0.46](https://github.com/gajus/gitinfo/compare/v2.0.45...v2.0.46) (2016-08-22)
+
+
+
+<a name="2.0.45"></a>
+## [2.0.45](https://github.com/gajus/gitinfo/compare/v2.0.44...v2.0.45) (2016-08-22)
+
+
+
+<a name="2.0.44"></a>
+## [2.0.44](https://github.com/gajus/gitinfo/compare/v2.0.43...v2.0.44) (2016-08-22)
+
+
+
+<a name="2.0.43"></a>
+## [2.0.43](https://github.com/gajus/gitinfo/compare/v2.0.42...v2.0.43) (2016-08-22)
+
+
+
+<a name="2.0.42"></a>
+## [2.0.42](https://github.com/gajus/gitinfo/compare/v2.0.41...v2.0.42) (2016-08-22)
+
+
+
+<a name="2.0.41"></a>
+## [2.0.41](https://github.com/gajus/gitinfo/compare/v2.0.40...v2.0.41) (2016-08-22)
+
+
+
+<a name="2.0.40"></a>
+## [2.0.40](https://github.com/gajus/gitinfo/compare/v2.0.39...v2.0.40) (2016-08-22)
+
+
+
+<a name="2.0.39"></a>
+## [2.0.39](https://github.com/gajus/gitinfo/compare/v2.0.38...v2.0.39) (2016-08-22)
+
+
+
+<a name="2.0.38"></a>
+## [2.0.38](https://github.com/gajus/gitinfo/compare/v2.0.37...v2.0.38) (2016-08-22)
+
+
+
+<a name="2.0.37"></a>
+## [2.0.37](https://github.com/gajus/gitinfo/compare/v2.0.36...v2.0.37) (2016-08-22)
+
+
+
+<a name="2.0.36"></a>
+## [2.0.36](https://github.com/gajus/gitinfo/compare/v2.0.35...v2.0.36) (2016-08-22)
+
+
+
 <a name="2.0.35"></a>
 ## [2.0.35](https://github.com/gajus/gitinfo/compare/v2.0.34...v2.0.35) (2016-08-22)
 
