@@ -11,6 +11,7 @@ script:
     - NODE_ENV=development npm run build
     - rm -fr ./dist
     - NODE_ENV=production npm run build
+    - rm -fr ./dist
     - npm run lint
     - flow
     - nyc --silent npm run test
@@ -18,9 +19,7 @@ script:
     - nyc check-coverage --lines 90
     - conventional-changelog-lint --from=HEAD~$(git --no-pager rev-list master..HEAD --count)
 after_success:
-    - git config --global user.name "semantic-release (via TravisCI)"
-    - git config --global user.email "semantic-release@travis"
-    - 'semantic-release pre && conventional-changelog --infile CHANGELOG.md --same-file && git commit -m "docs: update changelog" ./CHANGELOG.md && npm publish && semantic-release post'
+    - travis-after-all && ./release.sh
 notifications:
     email: false
 sudo: false
