@@ -24,6 +24,9 @@ echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
 # Use NPM_TOKEN to enable NPM authentication
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
+git checkout master
+git merge $TRAVIS_COMMIT
+
 echo 'before'
 git status
 
