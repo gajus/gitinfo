@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.19"></a>
+## [2.0.19](https://github.com/gajus/gitinfo/compare/v2.0.18...v2.0.19) (2016-08-22)
+
+
+
 <a name="2.0.18"></a>
 ## [2.0.18](https://github.com/gajus/gitinfo/compare/v2.0.17...v2.0.18) (2016-08-22)
 
