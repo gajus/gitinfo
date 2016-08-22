@@ -35,12 +35,6 @@ echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 git checkout master
 git merge $TRAVIS_COMMIT
 
-echo 'before'
-git status
-
 standard-version --message "chore: release %s"
-
-echo 'after'
-git status
 
 git push --follow-tags origin master
