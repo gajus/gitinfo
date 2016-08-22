@@ -1,12 +1,12 @@
 #!/bin/bash
 set -ev
 
-if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+if [[$TRAVIS_PULL_REQUEST == "true"]]; then
   echo "this is PR, exiting"
   exit 0
 fi
 
-if [ $TRAVIS_TAG == "true" ]; then
+if [[$TRAVIS_TAG == "true"]]; then
     NODE_ENV=development npm install --depth 0
     NODE_ENV=production npm run build
 
