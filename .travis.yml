@@ -20,7 +20,7 @@ script:
 after_success:
     - git config --global user.name "semantic-release (via TravisCI)"
     - git config --global user.email "semantic-release@travis"
-    - semantic-release pre && npm publish && semantic-release post
+    - 'semantic-release pre && conventional-changelog --infile CHANGELOG.md --same-file && git commit -m "docs: update changelog" ./CHANGELOG.md && npm publish && semantic-release post'
 notifications:
     email: false
 sudo: false

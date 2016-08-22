@@ -36,6 +36,7 @@
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-register": "^6.11.6",
     "chai": "^3.5.0",
+    "conventional-changelog-cli": "^1.2.0",
     "conventional-changelog-lint": "^1.0.1",
     "coveralls": "^2.11.12",
     "documentation": "^4.0.0-beta9",
