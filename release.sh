@@ -1,3 +1,5 @@
+#!/bin/bash
+set -ev
 rm -fr ./node_modules
 git config --global user.name 'standard-version'
 git config --global user.email 'standard-version@travis'
