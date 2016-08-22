@@ -3,6 +3,7 @@ set -ev
 rm -fr ./node_modules
 git config --global user.name 'standard-version'
 git config --global user.email 'standard-version@travis'
+git remote "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
 
 echo $TRAVIS_BRANCH
 echo $TRAVIS_COMMIT_RANGE
