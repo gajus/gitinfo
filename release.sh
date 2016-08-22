@@ -11,6 +11,7 @@ echo $TRAVIS_REPO_SLUG
 echo $TRAVIS_PULL_REQUEST
 
 git remote -v
+git config --list
 
 git checkout master
 git pull origin master
