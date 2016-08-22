@@ -9,7 +9,6 @@ fi
 rm -fr ./node_modules
 git config --global user.name 'standard-version'
 git config --global user.email 'standard-version@travis'
-git remote "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
 
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
