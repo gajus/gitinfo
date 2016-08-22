@@ -18,7 +18,7 @@ if [[ $TRAVIS_TAG != "" ]]; then
     exit 0
 fi
 
-if [[ $(git show --format=%B $TRAVIS_COMMIT) == *"chore: release"* ]]; then
+if [[ $(git log --format=%B -n 1 $TRAVIS_COMMIT) == *"chore: release"* ]]; then
     echo 'this is a release, exiting'
 
     exit 0
