@@ -22,8 +22,6 @@ if [[ $(git show --format=%B $TRAVIS_COMMIT) == *"chore: release"* ]]; then
     exit 0
 fi;
 
-env
-
 git config --global user.name 'standard-version'
 git config --global user.email 'standard-version@travis'
 
