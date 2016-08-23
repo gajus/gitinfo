@@ -36,8 +36,13 @@ echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
 git checkout master
 git merge $TRAVIS_COMMIT
 
+# 1. bump the package.json version (based on your commit history)
+# 2. update CHANGELOG.md
+# 3. commit package.json and CHANGELOG.md
+# 4. tag the release
 standard-version --message "chore: release %s"
 
+# Generate ./README.md from ./.README.md template.
 npm run documentation
 
 git add ./README.md
