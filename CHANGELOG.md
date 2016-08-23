@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.85"></a>
+## [2.0.85](https://github.com/gajus/gitinfo/compare/v2.0.84...v2.0.85) (2016-08-23)
+
+
+### Bug Fixes
+
+* correct release.sh script ([9ba4910](https://github.com/gajus/gitinfo/commit/9ba4910))
+
+
+
 <a name="2.0.84"></a>
 ## [2.0.84](https://github.com/gajus/gitinfo/compare/v2.0.83...v2.0.84) (2016-08-22)
 
