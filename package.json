@@ -6,7 +6,7 @@
     "repository",
     "info"
   ],
-  "version": "2.1.8",
+  "version": "2.1.9",
   "main": "./dist/gitinfo.js",
   "author": {
     "name": "Gajus Kuizinas",

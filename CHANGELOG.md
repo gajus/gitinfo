@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.9"></a>
+## [2.1.9](https://github.com/gajus/gitinfo/compare/v2.1.7...v2.1.9) (2016-08-23)
+
+
+### Bug Fixes
+
+* generate documentation prior to creating a tag ([c5a47d3](https://github.com/gajus/gitinfo/commit/c5a47d3))
+
+
+
 <a name="2.1.8"></a>
 ## [2.1.8](https://github.com/gajus/gitinfo/compare/v2.1.7...v2.1.8) (2016-08-23)
 
