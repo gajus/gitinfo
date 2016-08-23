@@ -38,6 +38,8 @@
     "chai": "^3.5.0",
     "conventional-changelog-cli": "^1.2.0",
     "conventional-changelog-lint": "^1.0.1",
+    "conventional-changelog-lint-config-canonical": "^1.0.0",
+    "conventional-recommended-bump": "^0.3.0",
     "coveralls": "^2.11.12",
     "documentation": "^4.0.0-beta9",
     "eslint": "^3.3.1",
