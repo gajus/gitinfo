@@ -18,7 +18,7 @@ script:
   - nyc check-coverage --lines 90
   - conventional-changelog-lint --from=HEAD~$(git --no-pager rev-list master..HEAD --count)
 after_success:
-  - travis-after-all && ./release.sh
+  - travis-after-all && ./.scripts/release.sh
 notifications:
   email: false
 sudo: false
