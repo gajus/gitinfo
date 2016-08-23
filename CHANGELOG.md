@@ -1,3 +1,18 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/gajus/gitinfo/compare/v2.0.4...v2.1.1) (2016-08-23)
+
+
+### Bug Fixes
+
+* automate changelog generation ([27f52bb](https://github.com/gajus/gitinfo/commit/27f52bb))
+* correct release.sh script ([052ae0c](https://github.com/gajus/gitinfo/commit/052ae0c))
+
+
+
 <a name="0.0.0-semantic-release"></a>
 # 0.0.0-semantic-release (2016-08-22)
 
@@ -183,6 +198,3 @@
 * Silent output. ([160c258](https://github.com/gajus/gitinfo/commit/160c258))
 * Using GitDown. ([2fbe676](https://github.com/gajus/gitinfo/commit/2fbe676))
 * Works if repository is pulled either with SVN, Git or HTTPS. ([a03ddf6](https://github.com/gajus/gitinfo/commit/a03ddf6))
-
-
-
