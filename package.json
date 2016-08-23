@@ -43,7 +43,7 @@
     "coveralls": "^2.11.12",
     "documentation": "^4.0.0-beta9",
     "eslint": "^3.3.1",
-    "eslint-config-canonical": "^1.7.15",
+    "eslint-config-canonical": "^1.7.16",
     "flow-bin": "^0.31.1",
     "gitdown": "^2.4.10",
     "mocha": "^3.0.2",
