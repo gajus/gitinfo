@@ -11,7 +11,7 @@ if [[ $TRAVIS_TAG != "" ]]; then
     # Use NPM_TOKEN to enable NPM authentication
     echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
-    NODE_ENV=development npm install --depth 0
+    NODE_ENV=development npm install
     NODE_ENV=production npm run build
 
     npm publish
