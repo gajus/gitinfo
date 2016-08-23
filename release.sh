@@ -32,8 +32,8 @@ if [[ $(git log --format=%B -n 1 $TRAVIS_COMMIT) == *"chore: release"* ]]; then
   exit 0
 fi;
 
-git config --global user.name 'standard-version'
-git config --global user.email 'standard-version@travis'
+git config --global user.name 'continuous-deployment'
+git config --global user.email 'continuous-deployment@travis'
 
 # Use GITHUB_TOKEN to enable GitHub authentication
 git config credential.helper "store --file=.git/credentials"
