@@ -54,4 +54,6 @@ npm run documentation
 git add ./README.md
 git commit --amend --no-edit
 
+git tag
+
 git push --follow-tags origin master
