@@ -2,26 +2,28 @@
 set -ev
 
 if [[ $TRAVIS_PULL_REQUEST = "true" ]]; then
-  echo 'this is PR, exiting'
+  echo 'This is a pull request. Exiting the release script.'
 
   exit 0
 fi
 
 if [[ $TRAVIS_TAG != "" ]]; then
-    # Use NPM_TOKEN to enable NPM authentication
-    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+  echo 'This is a tag release.'
 
-    NODE_ENV=development npm install
-    NODE_ENV=production npm run build
+  # Use NPM_TOKEN to enable NPM authentication
+  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
-    npm publish
-    exit 0
+  NODE_ENV=development npm install
+  NODE_ENV=production npm run build
+
+  npm publish
+  exit 0
 fi
 
 if [[ $(git log --format=%B -n 1 $TRAVIS_COMMIT) == *"chore: release"* ]]; then
-    echo 'this is a release, exiting'
+  echo 'This is a tag release. Exiting the release script.'
 
-    exit 0
+  exit 0
 fi;
 
 git config --global user.name 'standard-version'
