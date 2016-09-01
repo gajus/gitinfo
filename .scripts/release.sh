@@ -2,10 +2,19 @@
 set -ev
 
 if [[ $TRAVIS_PULL_REQUEST != "false" ]]; then
-  echo 'This is a pull request. Exiting the release script.'
+  echo 'TEST 1'
+fi;
 
-  exit 0
+if [[ $TRAVIS_PULL_REQUEST != false ]]; then
+  echo 'TEST 2'
+fi;
+
+if [[ !$TRAVIS_PULL_REQUEST ]]; then
+  echo 'TEST 3'
 fi
+
+echo 'TRAVIS_PULL_REQUEST'
+echo $TRAVIS_PULL_REQUEST
 
 if [[ $TRAVIS_BRANCH != "master" ]]; then
   echo 'This is not a master branch. Exiting the release script.'
