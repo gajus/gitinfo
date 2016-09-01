@@ -22,7 +22,8 @@
     "build": "babel ./src --out-dir ./dist --copy-files",
     "test": "NODE_ENV=development mocha --compilers js:babel-register ./tests",
     "documentation": "documentation build ./src --format md --access public --output ./API.md && gitdown ./.README/README.md --output-file ./README.md",
-    "lint": "eslint ./src ./tests"
+    "lint": "eslint ./src ./tests",
+    "commitmsg": "conventional-changelog-lint -e"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -46,6 +47,7 @@
     "eslint-config-canonical": "^1.7.16",
     "flow-bin": "^0.31.1",
     "gitdown": "^2.4.10",
+    "husky": "^0.11.6",
     "mocha": "^3.0.2",
     "nyc": "^8.1.0",
     "standard-version": "^2.4.0",
