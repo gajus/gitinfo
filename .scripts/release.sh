@@ -42,7 +42,7 @@ echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
 git checkout master
 git merge $TRAVIS_COMMIT
 
-# Generate ./README.md from ./.README.md template.
+# Generate ./README.md from ./.README/README.md template.
 npm run documentation
 
 git add ./README.md
