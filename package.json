@@ -23,6 +23,7 @@
     "test": "NODE_ENV=development mocha --compilers js:babel-register ./tests",
     "documentation": "documentation build ./src --format md --access public --output ./API.md && gitdown ./.README/README.md --output-file ./README.md",
     "lint": "eslint ./src ./tests",
+    "precommit": "npm run lint && npm run test",
     "commitmsg": "conventional-changelog-lint -e"
   },
   "devDependencies": {
