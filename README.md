@@ -1,4 +1,5 @@
-<h1 id="gitinfo">gitinfo</h1>
+<a name="gitinfo"></a>
+# gitinfo
 
 [![Travis build status](http://img.shields.io/travis/gajus/gitinfo/master.svg?style=flat-square)](https://travis-ci.org/gajus/gitinfo)
 [![Coveralls](https://img.shields.io/coveralls/gajus/gitinfo.svg?style=flat-square)](https://github.com/gajus/gitinfo)
@@ -7,15 +8,18 @@
 
 Gets information about Git repository.
 
-<h2 id="gitinfo-implementation">Implementation</h2>
+<a name="gitinfo-implementation"></a>
+## Implementation
 
 gitinfo reads the contents of the `./git` directory to extract information.
 
-<h2 id="gitinfo-api">API</h2>
+<a name="gitinfo-api"></a>
+## API
 
 [./API.md](./API.md) documentation.
 
-<h2 id="gitinfo-download">Download</h2>
+<a name="gitinfo-download"></a>
+## Download
 
 Download using NPM:
 
