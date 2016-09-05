@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.14"></a>
+## [2.1.14](https://github.com/gajus/gitinfo/compare/v2.1.13...v2.1.14) (2016-09-05)
+
+
+### Bug Fixes
+
+* ensure not to print private tokens ([9f45f8c](https://github.com/gajus/gitinfo/commit/9f45f8c))
+
+
+
 <a name="2.1.13"></a>
 ## [2.1.13](https://github.com/gajus/gitinfo/compare/v2.1.12...v2.1.13) (2016-09-05)
 
