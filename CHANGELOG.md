@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.12"></a>
+## [2.1.12](https://github.com/gajus/gitinfo/compare/v2.1.11...v2.1.12) (2016-09-05)
+
+
+### Bug Fixes
+
+* add a condition to prevent empty commit ([299229f](https://github.com/gajus/gitinfo/commit/299229f))
+* fix NPM release script ([87c6ed4](https://github.com/gajus/gitinfo/commit/87c6ed4))
+
+
+
 <a name="2.1.11"></a>
 ## [2.1.11](https://github.com/gajus/gitinfo/compare/v2.1.10...v2.1.11) (2016-09-02)
 
