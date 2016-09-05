@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.13"></a>
+## [2.1.13](https://github.com/gajus/gitinfo/compare/v2.1.12...v2.1.13) (2016-09-05)
+
+
+### Bug Fixes
+
+* move tag check prior to branch check ([3338f28](https://github.com/gajus/gitinfo/commit/3338f28))
+
+
+
 <a name="2.1.12"></a>
 ## [2.1.12](https://github.com/gajus/gitinfo/compare/v2.1.11...v2.1.12) (2016-09-05)
 
