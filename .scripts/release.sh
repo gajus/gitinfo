@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+if [[ $TRAVIS_PULL_REQUEST != "false" ]]; then
   echo 'This is a pull request. Exiting the release script.'
 
   exit 0
@@ -20,7 +20,7 @@ if [[ -n $TRAVIS_TAG ]]; then
   exit 0
 fi
 
-if [[ "$TRAVIS_BRANCH" != "master" ]]; then
+if [[ $TRAVIS_BRANCH != "master" ]]; then
   echo 'This is not a master branch. Exiting the release script.'
 
   exit 0
