@@ -14,7 +14,8 @@ import {
  * @property gitPath Path to the .git directory (default: __dirname).
  */
 type TypeConfig = {
-    gitPath?: string
+    gitPath?: string,
+    defaultBranchName?: string
 };
 
 /**
@@ -77,7 +78,8 @@ export default (userConfig: TypeConfig = {}): Object => {
   gitinfo.getRemoteUrl = (): string => {
     const branchName = gitinfo.getBranchName();
     const gitConfig = gitinfo.getConfig();
-    const branch = gitConfig['branch "' + branchName + '"'];
+    const branch = gitConfig['branch "' + branchName + '"'] ||
+    gitConfig['branch "' + config.defaultBranchName + '"'];
 
         /* istanbul ignore next */
     if (!branch) {
