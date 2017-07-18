@@ -20,13 +20,15 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --copy-files",
+    "watch": "babel ./src -w --out-dir ./dist --copy-files",
     "test": "NODE_ENV=development mocha --compilers js:babel-register ./tests",
     "documentation": "documentation build ./src --format md --access public --output ./API.md && gitdown ./.README/README.md --output-file ./README.md",
     "lint": "eslint ./src ./tests",
     "precommit": "npm run lint && npm run test",
-    "commitmsg": "conventional-changelog-lint -e"
+    "commitmsg": "commitlint -e"
   },
   "devDependencies": {
+    "@commitlint/cli": "3.0.3",
     "babel-cli": "^6.11.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^2.0.0",
@@ -38,8 +40,6 @@
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-register": "^6.11.6",
     "chai": "^3.5.0",
-    "conventional-changelog-cli": "^1.2.0",
-    "conventional-changelog-lint": "^1.0.1",
     "conventional-changelog-lint-config-canonical": "^1.0.0",
     "conventional-recommended-bump": "^0.3.0",
     "coveralls": "^2.11.12",
