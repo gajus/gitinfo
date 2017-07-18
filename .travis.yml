@@ -16,6 +16,7 @@ script:
   - nyc --silent npm run test
   - nyc report --reporter=text-lcov | coveralls
   - nyc check-coverage --lines 90
+  - git fetch --shallow
   - conventional-changelog-lint --from=HEAD~$(git --no-pager rev-list master..HEAD --count)
 after_success:
   - travis-after-all && ./.scripts/release.sh
