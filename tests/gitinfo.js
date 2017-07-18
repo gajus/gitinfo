@@ -3,7 +3,7 @@ import path from 'path';
 import {
     expect
 } from 'chai';
-import gitinfo from './../src/gitinfo.js';
+import gitinfo from './../src/gitinfo';
 
 describe('gitinfo', () => {
   let repository;
