@@ -25,10 +25,13 @@ type TypeConfig = {
 export default (userConfig: TypeConfig = {}): Object => {
   const gitinfo = {};
 
-  const config = {
-    gitPath: __dirname,
-    ...userConfig
-  };
+  const config = Object.assign(
+    {},
+    {
+      gitPath: __dirname
+    },
+    userConfig
+  );
 
   const gitPath = (() => {
     if (isGitDirectory(config.gitPath)) {

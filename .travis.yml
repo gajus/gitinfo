@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - 12
   - 6
   - 5
   - 4
@@ -9,8 +10,6 @@ before_install:
   - npm install --global npm@3
 script:
   - /bin/bash ./.scripts/lint-commits.sh
-  - NODE_ENV=development npm run build
-  - rm -fr ./dist
   - NODE_ENV=production npm run build
   - rm -fr ./dist
   - npm run lint
