@@ -64,14 +64,19 @@ export default (userConfig: TypeConfig = {}): Object => {
 
     const head = fs.readFileSync(name, {encoding: 'utf8'});
 
-    const branch = head.match(/^ref: refs\/heads\/(.*)$/m);
+    const match = head.match(/^ref: refs\/heads\/(.*)$/m);
+    const branch = match && match[1];
 
-        /* istanbul ignore next */
-    if (!branch) {
-      throw new Error('Cannot get the current branch name.');
+    if (branch) {
+      return branch;
     }
 
-    return branch[1];
+    if (config.defaultBranchName) {
+      return config.defaultBranchName;
+    }
+
+    /* istanbul ignore next */
+    throw new Error('Cannot get the current branch name.');
   };
 
     /**
