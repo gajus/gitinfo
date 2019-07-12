@@ -1,7 +1,6 @@
 anguage: node_js
 node_js:
   - node
-  - 10
 script:
   - npm run build
   - npm run test
