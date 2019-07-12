@@ -1,72 +1,46 @@
 {
-  "name": "gitinfo",
+  "author": {
+    "email": "gajus@gajus.com",
+    "name": "Gajus Kuizinas",
+    "url": "http://gajus.com"
+  },
+  "dependencies": {
+    "ini": "^1.3.5",
+    "ramda": "^0.26.1"
+  },
   "description": "Gets information about a Git repository.",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-canonical": "^17.1.3",
+    "husky": "^3.0.0",
+    "mocha": "^6.1.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test && npm run build"
+    }
+  },
   "keywords": [
     "github",
     "repository",
     "info"
   ],
-  "version": "2.2.0",
+  "license": "BSD-3-Clause",
   "main": "./dist/gitinfo.js",
-  "author": {
-    "name": "Gajus Kuizinas",
-    "email": "gajus@gajus.com",
-    "url": "http://gajus.com"
-  },
+  "name": "gitinfo",
   "repository": {
     "type": "git",
     "url": "https://github.com/gajus/gitinfo"
   },
-  "license": "BSD-3-Clause",
   "scripts": {
-    "build": "babel ./src --out-dir ./dist --copy-files",
-    "watch": "babel ./src -w --out-dir ./dist --copy-files",
-    "test": "NODE_ENV=test mocha --require babel-register ./tests",
-    "documentation": "documentation build ./src --format md --access public --output ./API.md && gitdown ./.README/README.md --output-file ./README.md",
+    "build": "NODE_ENV=production babel ./src --out-dir ./dist --copy-files",
     "lint": "eslint ./src ./tests",
-    "precommit": "npm run lint && npm run test",
-    "commitmsg": "commitlint -e"
+    "test": "NODE_ENV=test mocha --require @babel/register ./tests"
   },
-  "devDependencies": {
-    "@commitlint/cli": "3.0.3",
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.26.3",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-istanbul": "^2.0.0",
-    "babel-plugin-transform-flow-strip-types": "^6.8.0",
-    "babel-plugin-typecheck": "^3.9.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.11.6",
-    "chai": "^3.5.0",
-    "conventional-changelog-lint-config-canonical": "^1.0.0",
-    "conventional-recommended-bump": "^0.3.0",
-    "coveralls": "^2.11.12",
-    "documentation": "^4.0.0-beta9",
-    "eslint": "^3.3.1",
-    "eslint-config-canonical": "^1.7.16",
-    "flow-bin": "^0.101.1",
-    "gitdown": "^2.4.10",
-    "husky": "^0.11.6",
-    "mocha": "^3.0.2",
-    "nyc": "^8.1.0",
-    "standard-version": "^2.4.0",
-    "travis-after-all": "^1.4.4"
-  },
-  "dependencies": {
-    "ini": "^1.3.4",
-    "ramda": "^0.22.1"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "text-lcov"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
-  }
+  "version": "2.2.0"
 }

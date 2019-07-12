@@ -9,10 +9,10 @@ import ini from 'ini';
  *
  * @access protected
  */
-export const parseIni = (name: string): Object => {
+export const parseIni = (name) => {
   let config;
 
-    /* istanbul ignore next */
+  /* istanbul ignore next */
   if (!fs.existsSync(name)) {
     throw new Error('INI file ("' + name + '") does not exist.');
   }
@@ -23,11 +23,6 @@ export const parseIni = (name: string): Object => {
   return config;
 };
 
-type TypeRepository = {
-    username: string,
-    name: string
-};
-
 /**
  * Extracts information about the the repository from the
  * supplied URL (presumably, the remote origin URL).
@@ -35,24 +30,24 @@ type TypeRepository = {
  * @access protected
  * @param input Supported Git remote origin URL (https, git or SVN).
  */
-export const parseRemoteOriginUrl = (input: string): TypeRepository => {
+export const parseRemoteOriginUrl = (input) => {
   let url;
 
-    // git@github.com:gajus/gitdown.git
-    // https://github.com/gajus/gitdown.git
-    // https://github.com/gajus/gitdown
+  // git@github.com:gajus/gitdown.git
+  // https://github.com/gajus/gitdown.git
+  // https://github.com/gajus/gitdown
 
-  if (input.indexOf('com:') === -1) {
+  if (input.includes('com:')) {
+    url = input.split('com:')[1];
+  } else {
     const parsedUrl = URL.parse(input);
 
     if (parsedUrl && parsedUrl.path) {
       url = parsedUrl.path.slice(1);
     } else {
-            /* istanbul ignore next */
+      /* istanbul ignore next */
       throw new Error('Cannot parse origin URL.');
     }
-  } else {
-    url = input.split('com:')[1];
   }
 
   if (/\.git$/.test(url)) {
@@ -61,7 +56,7 @@ export const parseRemoteOriginUrl = (input: string): TypeRepository => {
 
   url = url.split('/');
 
-    /* istanbul ignore next */
+  /* istanbul ignore next */
   if (url.length !== 2) {
     throw new Error('Invalid remote origin URL ("' + input + '").');
   }
@@ -77,7 +72,7 @@ export const parseRemoteOriginUrl = (input: string): TypeRepository => {
  *
  * @access protected
  */
-export const isGitDirectory = (path: string): boolean => {
+export const isGitDirectory = (path) => {
   try {
     fs.statSync(path + '/HEAD');
     fs.statSync(path + '/objects');
@@ -96,9 +91,9 @@ export const isGitDirectory = (path: string): boolean => {
  * @access protected
  * @param startPath The path where to start the search.
  */
-export const findGitPath = (startPath: string): string => {
-  let dirname,
-    gitpath;
+export const findGitPath = (startPath) => {
+  let dirname;
+  let gitpath;
 
   dirname = startPath;
 
@@ -112,7 +107,7 @@ export const findGitPath = (startPath: string): string => {
     dirname = fs.realpathSync(dirname + '/..');
   } while (fs.existsSync(dirname) && dirname !== '/');
 
-    /* istanbul ignore next */
+  /* istanbul ignore next */
   if (!gitpath) {
     throw new Error('Cannot locate .git directory.');
   }

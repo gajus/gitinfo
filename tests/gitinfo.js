@@ -1,19 +1,21 @@
+// @flow
+
 import {
-    writeFile,
-    realpathSync
+  writeFile,
+  realpathSync
 } from 'fs';
 import path from 'path';
 import {
-    expect
+  expect
 } from 'chai';
-import gitinfo from './../src/gitinfo';
+import gitinfo from '../src/gitinfo';
 
 const writeFileAsync = (fileName) => {
   return (data) => {
     return new Promise((resolve, reject) => {
-      writeFile(fileName, data, 'utf8', (err) => {
-        if (err) {
-          reject(err);
+      writeFile(fileName, data, 'utf8', (error) => {
+        if (error) {
+          reject(error);
         } else {
           resolve(data);
         }
@@ -49,17 +51,17 @@ describe('gitinfo', () => {
 
     it('fallback to default branch if local branch is not tracking upstream', (done) => {
       writeFileAsync(directory + '/HEAD')('ref: refs/heads/dummy')
-      .then(() => {
-        expect(repository.getRemoteUrl()).to.equal('git@github.com:foo/bar.git');
+        .then(() => {
+          expect(repository.getRemoteUrl()).to.equal('git@github.com:foo/bar.git');
 
-        return writeFileAsync(directory + '/HEAD')('ref: refs/heads/master');
-      })
-      .then(() => {
-        return done();
-      })
-      .catch((err) => {
-        throw Error(err);
-      });
+          return writeFileAsync(directory + '/HEAD')('ref: refs/heads/master');
+        })
+        .then(() => {
+          return done();
+        })
+        .catch((error) => {
+          throw new Error(error);
+        });
     });
 
     it('fallback to default branch if "You are in \'detached HEAD\' state."', (done) => {
@@ -72,8 +74,8 @@ describe('gitinfo', () => {
         .then(() => {
           return done();
         })
-        .catch((err) => {
-          throw Error(err);
+        .catch((error) => {
+          throw new Error(error);
         });
     });
   });

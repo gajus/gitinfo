@@ -1,13 +1,15 @@
+// @flow
+
 /* eslint-disable max-nested-callbacks */
 
 import path from 'path';
 import {
-    expect
+  expect
 } from 'chai';
 import {
-    findGitPath,
-    parseRemoteOriginUrl
-} from './../src/utils';
+  findGitPath,
+  parseRemoteOriginUrl
+} from '../src/utils';
 
 describe('utils', () => {
   describe('parseRemoteOriginUrl()', () => {

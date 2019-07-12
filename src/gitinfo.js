@@ -4,25 +4,17 @@ import fs from 'fs';
 import path from 'path';
 import R from 'ramda';
 import {
-    parseRemoteOriginUrl,
-    parseIni,
-    isGitDirectory,
-    findGitPath
+  parseRemoteOriginUrl,
+  parseIni,
+  isGitDirectory,
+  findGitPath
 } from './utils';
-
-/**
- * @property gitPath Path to the .git directory (default: __dirname).
- */
-type TypeConfig = {
-    gitPath?: string,
-    defaultBranchName?: string
-};
 
 /**
  * @access public
  * @name gitinfo
  */
-export default (userConfig: TypeConfig = {}): Object => {
+export default (userConfig) => {
   const gitinfo = {};
 
   const config = Object.assign(
@@ -41,23 +33,23 @@ export default (userConfig: TypeConfig = {}): Object => {
     }
   })();
 
-    /**
-     * @access public
-     * @returns GitHub repository URL.
-     */
-  gitinfo.getGithubUrl = (): string => {
+  /**
+   * @access public
+   * @returns GitHub repository URL.
+   */
+  gitinfo.getGithubUrl = () => {
     return 'https://github.com/' + gitinfo.getUsername() + '/' + gitinfo.getName();
   };
 
-    /**
-     * @see http://stackoverflow.com/a/12142066/368691
-     * @access public
-     * @returns Name of the current branch.
-     */
-  gitinfo.getBranchName = (): string => {
+  /**
+   * @see http://stackoverflow.com/a/12142066/368691
+   * @access public
+   * @returns Name of the current branch.
+   */
+  gitinfo.getBranchName = () => {
     const name = gitPath + '/HEAD';
 
-        /* istanbul ignore next */
+    /* istanbul ignore next */
     if (!fs.existsSync(name)) {
       throw new Error('Git HEAD ("' + name + '") does not exist.');
     }
@@ -79,17 +71,17 @@ export default (userConfig: TypeConfig = {}): Object => {
     throw new Error('Cannot get the current branch name.');
   };
 
-    /**
-     * @access public
-     * @returns Remote URL of the current branch.
-     */
-  gitinfo.getRemoteUrl = (): string => {
+  /**
+   * @access public
+   * @returns Remote URL of the current branch.
+   */
+  gitinfo.getRemoteUrl = () => {
     const branchName = gitinfo.getBranchName();
     const gitConfig = gitinfo.getConfig();
     const branch = gitConfig['branch "' + branchName + '"'] ||
     gitConfig['branch "' + config.defaultBranchName + '"'];
 
-        /* istanbul ignore next */
+    /* istanbul ignore next */
     if (!branch) {
       throw new Error('Branch ("' + branchName + '") definition does not exist in the config.');
     } else if (!branch.remote) {
@@ -98,7 +90,7 @@ export default (userConfig: TypeConfig = {}): Object => {
 
     const remote = gitConfig['remote "' + branch.remote + '"'];
 
-        /* istanbul ignore next */
+    /* istanbul ignore next */
     if (!remote) {
       throw new Error('Remote ("' + branch.remote + '") definition does not exist in the config.');
     } else if (!remote.url) {
@@ -108,35 +100,35 @@ export default (userConfig: TypeConfig = {}): Object => {
     return remote.url;
   };
 
-    /**
-     * @access public
-     * @returns Absolute path to the .git/ directory.
-     */
-  gitinfo.getGitPath = (): string => {
+  /**
+   * @access public
+   * @returns Absolute path to the .git/ directory.
+   */
+  gitinfo.getGitPath = () => {
     return gitPath;
   };
 
-    /**
-     * @access public
-     * @returns Username of the repository author.
-     */
-  gitinfo.getUsername = (): string => {
+  /**
+   * @access public
+   * @returns Username of the repository author.
+   */
+  gitinfo.getUsername = () => {
     return parseRemoteOriginUrl(gitinfo.getRemoteUrl()).username;
   };
 
-    /**
-     * @access public
-     * @returns Repository name.
-     */
-  gitinfo.getName = (): string => {
+  /**
+   * @access public
+   * @returns Repository name.
+   */
+  gitinfo.getName = () => {
     return parseRemoteOriginUrl(gitinfo.getRemoteUrl()).name;
   };
 
-    /**
-     * @access public
-     * @returns Commit SHA of the current branch.
-     */
-  gitinfo.getHeadSha = (): string => {
+  /**
+   * @access public
+   * @returns Commit SHA of the current branch.
+   */
+  gitinfo.getHeadSha = () => {
     let sha;
 
     const branch = gitinfo.getBranchName();
@@ -144,19 +136,19 @@ export default (userConfig: TypeConfig = {}): Object => {
 
     try {
       sha = fs.readFileSync(shaFile, {encoding: 'utf8'});
-    } catch (err) {
-            /* istanbul ignore next */
-      throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + err);
+    } catch (error) {
+      /* istanbul ignore next */
+      throw new Error('Cannot read the commit SHA of the current HEAD from the ' + shaFile + '.\n' + error);
     }
 
     return R.trim(sha);
   };
 
-    /**
-     * @access public
-     * @returns Representation of the .git/config file.
-     */
-  gitinfo.getConfig = (): Object => {
+  /**
+   * @access public
+   * @returns Representation of the .git/config file.
+   */
+  gitinfo.getConfig = () => {
     return parseIni(gitPath + '/config');
   };
 

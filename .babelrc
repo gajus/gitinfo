@@ -1,24 +1,12 @@
 {
-    "presets": [
-        [
-            "env", 
-            {
-                "targets": {
-                    "node": "4"
-                }
-            }
-        ]
-    ],
-    "plugins": [
-        "add-module-exports",
-        "transform-flow-strip-types"
-    ],
-    "env": {
-        "test": {
-            "plugins": [
-                "typecheck",
-                "istanbul"
-            ]
-        },
-    }
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "10"
+        }
+      }
+    ]
+  ]
 }
