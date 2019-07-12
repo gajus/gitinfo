@@ -61,6 +61,21 @@ describe('gitinfo', () => {
         throw Error(err);
       });
     });
+
+    it('fallback to default branch if "You are in \'detached HEAD\' state."', (done) => {
+      writeFileAsync(directory + '/HEAD')('32d1ad0c4b984cfb01b52f0477da528cfd1fe4c8')
+        .then(() => {
+          expect(repository.getRemoteUrl()).to.equal('git@github.com:foo/bar.git');
+
+          return writeFileAsync(directory + '/HEAD')('ref: refs/heads/master');
+        })
+        .then(() => {
+          return done();
+        })
+        .catch((err) => {
+          throw Error(err);
+        });
+    });
   });
   describe('.getUsername()', () => {
     it('returns the username of the repository author', () => {
