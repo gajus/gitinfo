@@ -42,5 +42,5 @@
     "lint": "eslint ./src ./tests",
     "test": "NODE_ENV=test mocha --require @babel/register ./tests"
   },
-  "version": "2.3.0"
+  "version": "2.4.0"
 }
