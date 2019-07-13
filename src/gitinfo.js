@@ -11,8 +11,15 @@ import {
 } from './utils';
 
 /**
+ * @typedef Configuration
+ * @property {string} [defaultBranchName] Default branch name to fallback to. Default: throws an error if branch cannot be resolved.
+ * @property {string} [gitPath] Path used to resolve .git path. Defaults to `__dirname`.
+ */
+
+/**
  * @access public
- * @name gitinfo
+ * @name createGitinfo
+ * @param {Configuration} userConfig
  */
 export default (userConfig) => {
   const gitinfo = {};
@@ -78,8 +85,7 @@ export default (userConfig) => {
   gitinfo.getRemoteUrl = () => {
     const branchName = gitinfo.getBranchName();
     const gitConfig = gitinfo.getConfig();
-    const branch = gitConfig['branch "' + branchName + '"'] ||
-    gitConfig['branch "' + config.defaultBranchName + '"'];
+    const branch = gitConfig['branch "' + branchName + '"'] || gitConfig['branch "' + config.defaultBranchName + '"'];
 
     /* istanbul ignore next */
     if (!branch) {
